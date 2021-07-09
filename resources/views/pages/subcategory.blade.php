@@ -27,13 +27,13 @@
 					<h2 class="block-title">
 						<span class="title-angle-shap"> News Feed "{{ $category }} &raquo; {{ $subcategory }}" </span>
 					</h2>
-					<div class="row ts-gutter-20 align-items-center">
+					<div class="row ts-gutter-20 align-items-center loadmore-frame">
 						@php
 	                        $loop_no = 1;
 	                    @endphp
                         @foreach ($breakingcat as $posts)
                             @if($posts['subcategory'] == $subcategory)
-                            <div class="col-12 mb-10">
+                            <div class="col-12 mb-10 content-box">
                                 <div class="post-block-style">
                                     <div class="row">
                                         <div class="col-md-5">
@@ -59,6 +59,11 @@
                             </div>
                             @endif
 						@endforeach
+
+						<div class="col-12 mt-3 align-items-center" style="text-align: center;">
+				            <a href="javascript:void(0)" class="btn btn-primary btn-sm load-more" title="Kumpulan Berita">Lihat Berita Lainnya</a>
+				            <a href="https://m.solopos.com/arsip" class="btn btn-primary btn-sm load-more-arsip" style="display: none;" title="Kumpulan Berita">Arsip Berita</a>
+						</div><!-- col end -->
 					</div>					
 				</div><!-- col-lg-8 -->
 
