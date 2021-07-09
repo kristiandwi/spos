@@ -17,13 +17,15 @@ class VideoController extends Controller
     public function __invoke(Request $request)
     {
         $xmlPath = Config::get('xmldata.breaking');
-        
+        $story = Helper::read_xml($xmlPath, 'breaking-story');
         $video = Helper::read_xml($xmlPath, 'breaking-video');
 
+        // dd($video);
+
         $header = [
-            'title' => 'Video Solopos',
+            'title' => 'Berita Video Solopos.com',
         ];
 
-        return view('pages.video', ['video' => $video, 'header' => $header]);
+        return view('pages.video', ['story' => $story, 'video' => $video, 'header' => $header]);
     }
 }

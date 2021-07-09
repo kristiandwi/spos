@@ -43,6 +43,7 @@ Route::get('/teknologi', CategoryController::class);
 Route::get('/cekfakta', CekFaktaController::class);
 Route::get('/premium', PremiumController::class);
 Route::get('/terpopuler', TerpopulerController::class);
+Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
 Route::get('/tag/{slug}', TagController::class);
 Route::get('/{category}/{subcategory}', SubCategoryController::class);

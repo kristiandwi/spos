@@ -48,6 +48,7 @@
 							</ul>
 						</div><!-- post-header-area end -->
 						<div class="post-content-area">
+							@if(empty($video))
 							<div class="post-media mb-20">
 								<a href="{{ $data['images']['content']}}" class="gallery-popup cboxElement">
 									<img src="{{ $data['images']['content']}}" alt="@if(!empty($data['images']['caption'])) {{ htmlentities($data['images']['caption']) }} @endif" class="img-fluid">
@@ -60,6 +61,11 @@
                                     @endif    
                                 </span>
 							</div>
+							@else
+							<div class="post-media mb-20">
+								<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/{{ $video }}?autoplay=1&origin=https://solopos.com" frameborder="0"></iframe>
+							</div>
+							@endif
 
                             <!-- ads parallax -->
 
