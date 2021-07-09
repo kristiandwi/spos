@@ -4,7 +4,7 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="col-md-3 col-sm-12">
 					<div class="header-nav">
-						<a href="https://www.solopos.com/lawan-covid-19">Lawan Covid-19</a> | <a href="https://www.solopos.com/ubahlaku">Ubah Laku</a> <a href="https://www.solopos.com/espospedia">Espospedia</a> | <a href="https://www.solopos.com/cekfakta">Cek Fakta</a>
+						<a href="{{ url('/lawan-covid-19') }}">Lawan Covid-19</a> | <a href="{{ url('/ubahlaku') }}">Ubah Laku</a> <a href="{{ url('/espospedia') }}">Espospedia</a> | <a href="{{ url('/cekfakta') }}">Cek Fakta</a>
 					</div>
 				</div><!-- logo col end -->		
 
@@ -15,7 +15,7 @@
                             <img src="/images/logo-.png" alt="Logo">
                         </a>                         --}}
                     	
-						<a href="">
+						<a href="{{ url('/') }}">
 							<img src="{{ asset('/images/logo.png') }}" alt="Logo">
 						</a>
 	                    
