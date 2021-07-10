@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Carbon;
 
 class Helper {
     // Parsing XML data
@@ -18,8 +19,10 @@ class Helper {
     }
 
     public static function time_ago($date) {
-        $time = human_time_diff(strtotime($date), current_time('timestamp'));
-        $time_ago = $time.' '.__('yang lalu');
-        return $time_ago;
+        return Carbon::parse($date)->diffForhumans();
+    }
+
+    public static function test_function() {
+        return "hello world";
     }
 }
