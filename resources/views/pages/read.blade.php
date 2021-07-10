@@ -34,7 +34,7 @@
 								<li class="post-author">
 									<a href="#"><strong>{{ $data['authors']['author'] }}</strong></a>
 								</li>
-								<li><a href="#"><i class="fa fa-clock-o"></i>{{ $data['created'] }} WIB</a></li>
+								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($data['created']) }} WIB</a></li>
 								<li><a href="#"><i class="fa fa-eye"></i><!-- reading time --></a></li>
 								<li class="social-share">
 									<i class="shareicon fa fa-share"></i>
@@ -211,8 +211,8 @@
 										</h2>
 										<p>{{ $pc['summary'] }}</p>
 										<div class="post-meta mb-7">
-											<span class="post-author"><a href="#"><i class="fa fa-user"></i>@if($pc['author']) {!! $pc['author'] !!} @endif</a></span>
-											<span class="post-date"><i class="fa fa-clock-o"></i>{{ $pc['date'] }}</span>
+											<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($pc['author']) {!! $pc['author'] !!} @endif</a></span>
+											<span class="post-date"><i class="fa fa-clock-o"></i>{{ Helper::time_ago($pc['date']) }}</span>
 										</div>
 									</div><!-- Post content end -->
 								</div><!-- Post block a end -->
@@ -294,8 +294,8 @@
 												<a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}" title="{{ $posts['title'] }}">{{ $posts['title'] }}</a>
 												</h2>
 												<div class="post-meta mb-7">
-													<span class="post-author"><a href="#"><i class="fa fa-user"></i>@if($posts['author']) {!! $posts['author'] !!} @endif</a></span>
-													<span class="post-date"><i class="fa fa-clock-o"></i> {{ $posts['date'] }}</span>
+													<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($posts['author']) {!! $posts['author'] !!} @endif</a></span>
+													<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($posts['date']) }}</span>
 												</div>
 												<p>@if($posts['summary']) {{ $posts['summary'] }} @endif</p>
 											</div>

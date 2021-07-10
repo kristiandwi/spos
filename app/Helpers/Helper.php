@@ -22,6 +22,10 @@ class Helper {
         return Carbon::parse($date)->diffForhumans();
     }
 
+    public static function indo_datetime($date) {
+        return Carbon::parse($date)->format('d F Y H:i:s');
+    }
+
     public static function test_function() {
         return "hello world";
     }

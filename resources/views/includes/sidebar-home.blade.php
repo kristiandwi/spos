@@ -38,7 +38,7 @@
 													<a href="{{ url("/{$pop['slug']}-{$pop['id']}") }}?utm_source=terpopular_desktop" title="{{ $pop['title'] }}">{{ $pop['title'] }}</a>
 												</h2>
 												<div class="post-meta mb-7">
-													<span class="post-date"><i class="fa fa-clock-o"></i> {{ $pop['date'] }}</span>
+													<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($pop['date']) }}</span>
 												</div>
 											</div><!-- Post content end -->
 										</div><!-- Post block style end -->
@@ -83,7 +83,7 @@
 									<a href="{{ url("/{$bn['slug']}-{$bn['id']}") }}?utm_source=sidebar_desktop" title="{{ $bn['title'] }}">{{ $bn['title'] }}</a>
 								</h2>
 								<div class="post-meta mb-7">
-									<span class="post-date"><i class="fa fa-clock-o"></i> {{ $bn['date'] }}</span>
+									<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($bn['date']) }}</span>
 								</div>
 							</div><!-- Post content end -->
 						</div><!-- Post block style end -->
@@ -122,7 +122,7 @@
 									<a href="{{ url("/{$ls['slug']}-{$ls['id']}") }}?utm_source=sidebar_desktop" title="{{ $ls['title'] }}">{{ $ls['title'] }}</a>
 								</h2>
 								<div class="post-meta mb-7">
-									<span class="post-date"><i class="fa fa-clock-o"></i> {{ $ls['date'] }}</span>
+									<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($ls['date']) }}</span>
 								</div>
 							</div><!-- Post content end -->
 						</div><!-- Post block style end -->
@@ -155,7 +155,7 @@
 									<a href="{{ url("/{$bs['slug']}-{$bs['id']}") }}?utm_source=sidebar_desktop" title="{{ $bs['title'] }}">{{ $bs['title'] }}</a>
 								</h2>
 								<div class="post-meta mb-7">
-									<span class="post-date"><i class="fa fa-clock-o"></i> {{ $bs['date'] }}</span>
+									<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($bs['date']) }}</span>
 								</div>
 							</div><!-- Post content end -->
 						</div><!-- Post block style end -->

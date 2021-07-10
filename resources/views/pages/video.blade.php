@@ -36,7 +36,7 @@
 												<div class="post-meta">
 													<ul>
 														<li><a href="#"><i class="fa fa-user"></i> @if($vid['author']) {!! $vid['author'] !!} @endif</a></li>
-														<li><a href="#"><i class="icon icon-clock"></i> {{ $vid['date'] }}</a></li>
+														<li><a href="#"><i class="icon icon-clock"></i> {{ Helper::time_ago($vid['date']) }}</a></li>
 													</ul>
 												</div>
 											</div>
@@ -66,7 +66,7 @@
 											<div class="post-meta">
 												<ul>
 													<li><a href="#"><i class="fa fa-user"></i> @if($vid['author']) {!! $vid['author'] !!} @endif</a></li>
-													<li><a href="#"><i class="icon icon-clock"></i> {{ $vid['date'] }}</a></li>
+													<li><a href="#"><i class="icon icon-clock"></i> {{ Helper::time_ago($vid['date']) }}</a></li>
 												</ul>
 											</div>
 										</div>

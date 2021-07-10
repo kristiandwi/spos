@@ -49,7 +49,7 @@
                                                 </h2>
                                                 <div class="post-meta mb-7">
                                                     <span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($posts['author']) {!! $posts['author'] !!} @endif</a></span>
-                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ $posts['date'] }} WIB</span>
+                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($posts['date']) }}</span>
                                                 </div>
                                                 <p>@if($posts['summary']) {!! $posts['summary'] !!} @endif</p>
                                             </div>

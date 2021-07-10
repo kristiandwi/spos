@@ -32,9 +32,9 @@
 									<a class="post-cat {{ $data['properties']['category']['parent'] }}" href="{{ $data['properties']['category']['parent'] }}">{{ $data['properties']['category']['parent'] }}</a>
 								</li>
 								<li class="post-author">
-									<a href="#"><strong>@if($data['authors']['author']) {{ $data['authors']['author'] }} @endif</strong></a>
+									<a href="#"><strong> @if($data['authors']['author']) {{ $data['authors']['author'] }} @endif</strong></a>
 								</li>
-								<li><a href="#"><i class="fa fa-clock-o"></i>{{ $data['created'] }} WIB</a></li>
+								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($data['created']) }} WIB</a></li>
 								<li><a href="#"><i class="fa fa-eye"></i><!-- reading time --></a></li>
 								<li class="social-share">
 									<i class="shareicon fa fa-share"></i>
@@ -205,7 +205,7 @@
 											<p>@if($pc['summary']) {!! $pc['summary'] !!} @endif</p>
 											<div class="post-meta mb-7">
 												<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($pc['author']) {!! $pc['author'] !!} @endif</a></span>
-												<span class="post-date"><i class="fa fa-clock-o"></i> {{ $pc['date'] }}</span>
+												<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($pc['date']) }}</span>
 											</div>
 										</div><!-- Post content end -->
 									</div><!-- Post block a end -->
@@ -273,7 +273,7 @@
 												</h2>
 												<div class="post-meta mb-7">
 													<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($ec['author']) {!! $ec['author'] !!} @endif</a></span>
-													<span class="post-date"><i class="fa fa-clock-o"></i> {{ $ec['date'] }}</span>
+													<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($ec['date']) }}</span>
 												</div>
 												<p>@if($ec['summary']) {!! $ec['summary'] !!} @endif</p>
 											</div>
