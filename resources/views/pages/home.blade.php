@@ -21,8 +21,8 @@
                                         </h2>
                                         <div class="post-meta">
                                             <ul>
-                                                <li><a href="#"><i class="fa fa-user"></i>@if($hl['author']) {!! $hl['author'] !!} @endif</a></li>
-                                                <li><a href="#"><i class="icon icon-clock"></i> {{ $hl['date'] }}</a></li>
+                                                <li><a href="#"><i class="fa fa-user"></i> @if($hl['author']) {!! $hl['author'] !!} @endif</a></li>
+                                                <li><a href="#"><i class="icon icon-clock"></i> {{ Helper::time_ago($hl['date']) }}</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -50,8 +50,8 @@
                                     </h2>
                                     <div class="post-meta">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-user"></i>@if($pc['author']) {!! $pc['author'] !!} @endif</a></li>
-                                            <li><a href="#"><i class="icon icon-clock"></i>{{ $pc['date'] }}</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i> @if($pc['author']) {!! $pc['author'] !!} @endif</a></li>
+                                            <li><a href="#"><i class="icon icon-clock"></i>{{ Helper::time_ago($pc['date']) }}</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
 											</h2>
 											<div class="post-meta mb-7">
 												<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($post['author']) {!! $post['author'] !!} @endif</a></span>
-												<span class="post-date"><i class="fa fa-clock-o"></i> {{ $post['date'] }}</span>
+												<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($post['date']) }}</span>
 											</div>
 											<p>@if($post['summary']) {!! $post['summary'] !!} @endif</p>
 										</div>
@@ -178,7 +178,7 @@
 										<p>@if($pc['summary']) {!! $pc['summary'] !!} @endif</p>
 										<div class="post-meta mb-7">
 											<span class="post-author"><a href="#"><i class="fa fa-user"></i>@if($pc['author']) {!! $pc['author'] !!} @endif</a></span>
-											<span class="post-date"><i class="fa fa-clock-o"></i> {{ $pc['date'] }}</span>
+											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($pc['date']) }}</span>
 										</div>
 									</div><!-- Post content end -->
 								</div><!-- Post block a end -->
@@ -236,7 +236,7 @@
 											</h2>
 											<div class="post-meta mb-7">
 												<span class="post-author"><a href="#"><i class="fa fa-user"></i>@if($post['author']) {!! $post['author'] !!} @endif</a></span>
-												<span class="post-date"><i class="fa fa-clock-o"></i> {{ $post['date'] }}</span>
+												<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($post['date']) }}</span>
 											</div>
 											<p>@if($post['summary']) {!! $post['summary'] !!} @endif</p>
 										</div>
@@ -303,7 +303,7 @@
 									<a href="{{ url("/{$kl['slug']}-{$kl['id']}") }}?utm_source=terkini_desktop" title="{{ $kl['title'] }}">{{ $kl['title'] }}</a>
 								</h2>
 								<div class="post-meta mb-7">
-									<span class="post-date"><i class="fa fa-clock-o"></i> {{ $kl['date'] }}</span>
+									<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($kl['date']) }}</span>
 								</div>
 							</div><!-- Post content end -->
 						</div><!-- Post Block style end -->
@@ -353,7 +353,7 @@
 										<p></p>
 										<div class="post-meta mb-7">
 											<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($jtg['author']) {!! $jtg['author'] !!} @endif</a></span>
-											<span class="post-date"><i class="fa fa-clock-o"></i> {{ $jtg['date'] }}</span>
+											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($jtg['date']) }}</span>
 										</div>
 									</div><!-- Post content end -->
 								</div><!-- Post block a end -->
@@ -413,7 +413,7 @@
 											<a href="{{ url("/{$oto['slug']}-{$oto['id']}") }}?utm_source=terpopular_desktop" title="{{ $oto['title'] }}">{{ $oto['title'] }}</a>
 										</h2>
 										<div class="post-meta mb-7">
-											<span class="post-date"><i class="fa fa-clock-o"></i> {{ $oto['date'] }}</span>
+											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($oto['date']) }}</span>
 										</div>
 									</div><!-- Post content end -->
 								</div><!-- Post block style end -->
@@ -500,7 +500,7 @@
 										</h2>
 										<div class="post-meta mb-7">
 											<span class="post-author"><a href="#"><i class="fa fa-user"></i> @if($vid['author']) {!! $vid['author'] !!} @endif</a></span>
-											<span class="post-date"><i class="fa fa-clock-o"></i> {{ $vid['date'] }} </span>
+											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($vid['date']) }} </span>
 										</div>
 										<p>@if($vid['summary']) {!! $vid['summary'] !!} @endif</p>
 									</div>
@@ -532,7 +532,7 @@
 														<a href="{{ url("/{$vid['slug']}-{$vid['id']}") }}?utm_source=video_desktop" title="{{ $vid['title'] }}">{{ $vid['title'] }}</a>
 													</h2>
 													<div class="post-meta mb-7">
-														<span class="post-date"><i class="fa fa-clock-o"></i> {{ $vid['date'] }}</span>
+														<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($vid['date']) }}</span>
 													</div>
 												</div><!-- Post content end -->
 											</div><!-- Post block style end -->
@@ -563,7 +563,7 @@
 														<a href="{{ url("/{$vid['slug']}-{$vid['id']}") }}?utm_source=video_desktop" title="{{ $vid['title'] }}">{{ $vid['title'] }}</a>
 													</h2>
 													<div class="post-meta mb-7">
-														<span class="post-date"><i class="fa fa-clock-o"></i> {{ $vid['date'] }}</span>
+														<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($vid['date']) }}</span>
 													</div>
 												</div><!-- Post content end -->
 											</div><!-- Post block style end -->
@@ -604,7 +604,7 @@
 											<a href="{{ url("/{$bl['slug']}-{$bl['id']}") }}?utm_source=terpopular_desktop" title="{{ $bl['title'] }}">{{ $bl['title'] }}</a>
 										</h2>
 										<div class="post-meta mb-7">
-											<span class="post-date"><i class="fa fa-clock-o"></i> {{ $bl['date'] }}</span>
+											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($bl['date']) }}</span>
 										</div>
 									</div><!-- Post content end -->
 								</div><!-- Post block style end -->
