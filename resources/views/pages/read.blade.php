@@ -10,8 +10,8 @@
 							<a href="{{ url('/') }}"><i class="fa fa-home"></i></a>
 							<i class="fa fa-angle-right"></i>
 						</li>
-						<li>{{ $data['properties']['category']['parent'] }}</li>
-						<li><i class="fa fa-angle-right"></i> {{ $data['content']['title'] }}</li>
+						<li>{{ $content['category'] }}</li>
+						<li><i class="fa fa-angle-right"></i> {{ $content['title'] }}</li>
 					</ol>		
 				</div>
 			</div><!-- row end -->
@@ -25,16 +25,16 @@
 				<div class="col-lg-8">
 					<div class="single-post">
 						<div class="post-header-area">
-							<h1 class="post-title title-lg">{{ $data['content']['title'] }}</h1>
-							<p>{{ $data['content']['summary'] }}</p>
+							<h1 class="post-title title-lg">{{ $content['title'] }}</h1>
+							<p>@if(!$content['summary']) {!! $content['summary'] !!} @endif</p>
 							<ul class="post-meta">
 								<li>
-									<a class="post-cat {{ $data['properties']['category']['parent'] }}" href="{{ $data['properties']['category']['parent'] }}">{{ $data['properties']['category']['parent'] }}</a>
+									<a class="post-cat {{ $content['category'] }}" href="{{ $content['category'] }}">{{ $content['category'] }}</a>
 								</li>
 								<li class="post-author">
-									<a href="#"><strong>{{ $data['authors']['author'] }}</strong></a>
+									<a href="#"><strong>{{ $content['author'] }}</strong></a>
 								</li>
-								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($data['created']) }} WIB</a></li>
+								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($content['date']) }} WIB</a></li>
 								<li><a href="#"><i class="fa fa-eye"></i><!-- reading time --></a></li>
 								<li class="social-share">
 									<i class="shareicon fa fa-share"></i>
@@ -50,12 +50,12 @@
 						<div class="post-content-area">
 							@if(empty($video))
 							<div class="post-media mb-20">
-								<a href="{{ $data['images']['content']}}" class="gallery-popup cboxElement">
-									<img src="{{ $data['images']['content']}}" alt="@if(!empty($data['images']['caption'])) {{ htmlentities($data['images']['caption']) }} @endif" class="img-fluid">
+								<a href="{{ $content['image'] }}" class="gallery-popup cboxElement">
+									<img src="{{ $content['image'] }}" alt="@if(!empty($content['caption'])) {{ htmlentities($content['caption']) }} @endif" class="img-fluid">
 								</a>
 								<span>
-                                    @if(!empty($data['images']['caption']))
-                                        <p>SOLOPOS.COM - {{ htmlentities($data['images']['caption']) }}</p>
+                                    @if(!empty($content['caption']))
+                                        <p>SOLOPOS.COM - {{ htmlentities($content['caption']) }}</p>
                                     @else
                                         <p>SOLOPOS.COM - Panduan Informasi dan Inspirasi</p>
                                     @endif    
@@ -69,7 +69,7 @@
 
                             <!-- ads parallax -->
 
-                             {!! htmlspecialchars_decode($data['content']['content']) !!}
+                             {!! htmlspecialchars_decode($content['content']) !!}
 
             			<?php //include (TEMPLATEPATH . '/ads/ads-detail-1.php'); ?>
 							
@@ -99,14 +99,14 @@
 						<div class="post-footer">							
 							<div class="author-box d-flex">
 								<div class="author-img">
-                                    @if(!empty($data['authors']['avatar']))
-                                        <img src="{{ htmlentities($data['authors']['avatar']) }}" alt="Profile">
+                                    @if(!empty($content['avatar']))
+                                        <img src="{{ htmlentities($content['avatar']) }}" alt="Profile">
                                     @else
                                         <img src="{{ asset('img/bg-img/3.jpg') }}" alt="Profile">
                                     @endif 									
 								</div>  								
 								<div class="author-info">
-									<h3><a href="https://www.solopos.com/author/" target="_blank">{{ $data['authors']['editor'] }}</a></h3>									
+									<h3><a href="https://www.solopos.com/author/" target="_blank">{{ $content['editor'] }}</a></h3>									
 									
 									<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
 									
@@ -126,15 +126,19 @@
 							<div class="gap-30"></div>
 							<div class="tag-lists">
 								<span>Tags: </span>
-                                @if(isset($data['tags']['tag']))
-                                    @foreach($data['tags']['tag'] as $tag)
-                                    @php
-                                        $tag_name = $tag;
-                                        $tag_slug = str_replace(' ', '-',$tag)
-                                    @endphp
-                                        <a href="{{ url("/tag/{$tag_slug}") }}">{{ $tag_name }}</a>
-                                    @endforeach
-                                @endif 
+                                @if(isset($content['tag']) AND empty($content['tag'][0]['term_id']))
+									@foreach($content['tag'] as $tag)
+									@php
+										$tag_name = $tag;
+										$tag_slug = str_replace(' ', '-',$tag)
+									@endphp
+										<a href="{{ url("/tag/{$tag_slug}") }}">{{ $tag_name }}</a>
+									@endforeach
+								@else
+									@foreach($content['tag'] as $tag)
+										<a href="{{ url("/tag/{$tag['slug']}") }}">{{ $tag['name'] }}</a>
+									@endforeach
+        						@endif
 							</div><!-- tag lists -->
 
 						</div>
