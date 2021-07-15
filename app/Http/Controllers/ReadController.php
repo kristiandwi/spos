@@ -83,12 +83,18 @@ class ReadController extends Controller
 
             // dd($phpArray);
             $data = $phpArray['posts'];
+            
+            if ($data['content']['summary']) {
+                $summary = $data['content']['summary'];
+            } else {
+                $summary = '';
+            }
 
             $content = [
                 'id' => $data['properties']['post_id'],
                 'date' => $data['created'],
                 'title' => $data['content']['title'],
-                'summary' => $data['content']['summary'],
+                'summary' => $summary,
                 'content' => $data['content']['content'],
                 'slug' => $data['content']['slug'],
                 'image' => $data['images']['content'],

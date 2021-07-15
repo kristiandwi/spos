@@ -26,7 +26,7 @@
 					<div class="single-post">
 						<div class="post-header-area">
 							<h1 class="post-title title-lg">{{ $content['title'] }}</h1>
-							<p>@if(!$content['summary']) {!! $content['summary'] !!} @endif</p>
+							<p>@if($content['summary']) {!! $content['summary'] !!} @endif</p>
 							<ul class="post-meta">
 								<li>
 									<a class="post-cat {{ $content['category'] }}" href="{{ $content['category'] }}">{{ $content['category'] }}</a>
