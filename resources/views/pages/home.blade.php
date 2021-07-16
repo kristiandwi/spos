@@ -269,7 +269,12 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-10">
 					<div class="banner-img">
-						<!-- ads leaderboard 2 -->
+						<!-- /54058497/soloposads/desktop-leaderboard-1 -->
+						<div id='div-gpt-ad-1626428932099-0' style='min-width: 468px; min-height: 60px;'>
+						  <script>
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428932099-0'); });
+						  </script>
+						</div>
 					</div>
 				</div>
 				<!-- col end -->
@@ -435,7 +440,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="banner-img text-center">
-						<!-- ads leaderboard 3 -->
+						<!-- /54058497/soloposads/desktop-leaderboard-2 -->
+						<div id='div-gpt-ad-1626429067262-0' style='min-width: 468px; min-height: 60px;'>
+						  <script>
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626429067262-0'); });
+						  </script>
+						</div>
 					</div>
 				</div>
 				<!-- col end -->

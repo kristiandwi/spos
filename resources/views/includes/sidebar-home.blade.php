@@ -3,7 +3,12 @@
 	<div class="sidebar">
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				<!-- ads sidebar 1 -->
+				<!-- /54058497/soloposads/Sidebar-desktop-1 -->
+				<div id='div-gpt-ad-1626428628354-0' style='min-width: 300px; min-height: 250px;'>
+				  <script>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428628354-0'); });
+				  </script>
+				</div>
 			</div>
 		</div><!-- widget end -->						
 		<div class="sidebar-widget featured-tab post-tab"><!-- style="position: -webkit-sticky; position: sticky; top: 130px;" -->
@@ -59,7 +64,12 @@
 		<!-- radio streaming --><br>
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-                <!-- ads sidebar 2 -->
+				<!-- /54058497/soloposads/Sidebar-desktop-2 -->
+				<div id='div-gpt-ad-1626428634532-0' style='min-width: 300px; min-height: 250px;'>
+				  <script>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428634532-0'); });
+				  </script>
+				</div>
 			</div>
 		</div><!-- widget end -->	
 		<div class="sidebar-widget">
@@ -97,7 +107,12 @@
 
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				<!-- ads sidebar 3 -->
+				<!-- /54058497/soloposads/Sidebar-desktop-3 -->
+				<div id='div-gpt-ad-1626428643116-0' style='min-width: 300px; min-height: 250px;'>
+				  <script>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428643116-0'); });
+				  </script>
+				</div>
 			</div>
 		</div><!-- widget end -->	
 
