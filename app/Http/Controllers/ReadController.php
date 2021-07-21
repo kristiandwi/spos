@@ -17,6 +17,7 @@ class ReadController extends Controller
      */
     public function __invoke(Request $request)
     {
+
         $id = $request->segment(1);
         $postid = explode('-', $id);
         $xmlPath = Config::get('xmldata.posts');
@@ -119,12 +120,19 @@ class ReadController extends Controller
 
             $video = $data['properties']['post_url_video'] ?? '';
 
-            $first_tag_id = $xmlObject->posts->tags->tag[0]['id'];
+            foreach($xmlObject->posts->tags->tag as $tag){
+                $tags[] = $tag['id'];
+            }
+            // dd(implode(',', $tags));
+
+            $first_tag_id = implode(',', $tags);
         }
 
         // dd($video);
 
         // dd($premium_content);
+
+        // dd( count($xmlObject->posts->tags->tag) );
 
         // header meta
         $header = array(
