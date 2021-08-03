@@ -1,4 +1,4 @@
-@extends('layouts.app-uksw')
+@extends('layouts.app')
 @section('content')
     <!-- breadcrumb -->
 	<div class="breadcrumb-section">

@@ -1,4 +1,4 @@
-@extends('layouts.app-uksw')
+@extends('layouts.app')
 @section('content')
     <!-- Section Terkini Start -->
 	<section class="block-wrapper">

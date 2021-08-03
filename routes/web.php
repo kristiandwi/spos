@@ -48,6 +48,7 @@ Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
 Route::get('/tag/{slug}', TagController::class);
 Route::get('/{category}/{subcategory}', SubCategoryController::class);
+
 Route::get('/uksw', UkswController::class);
 Route::get('/uksw/berita', UkswController::class);
 Route::get('/uksw/prestasi', UkswController::class);

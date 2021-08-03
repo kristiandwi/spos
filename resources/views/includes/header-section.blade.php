@@ -1,3 +1,9 @@
+  
+
+	@if(!empty($is_uksw) AND $is_uksw == 'yes')
+	@include('includes.tematik.header-uksw') 
+		  
+	@else	
 	<!-- Header start -->
 	<header id="header" class="header">
 		<div class="container">
@@ -276,3 +282,4 @@
 	<div class="gap-50"></div>
 	
     <!-- ads top leaderboar -->
+	@endif

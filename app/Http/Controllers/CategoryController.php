@@ -24,6 +24,7 @@ class CategoryController extends Controller
         }
         
         $xmlPath = Config::get('xmldata.breaking');
+        $xmlPath2 = Config::get('xmldata.topic');
         $story = Helper::read_xml($xmlPath, 'breaking-story');
         $headline = Helper::read_xml($xmlPath, 'breaking-headline');
         $breaking = Helper::read_xml($xmlPath, 'breaking-all');
@@ -43,12 +44,12 @@ class CategoryController extends Controller
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
-        $uksw = Helper::read_xml($xmlPath, 'uksw');
+        $uksw = Helper::read_xml($xmlPath2, 'uksw');
 
         $header = array(
             'title' => $cat,
         );
 
-        return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
+        return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
     }
 }

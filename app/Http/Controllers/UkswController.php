@@ -44,30 +44,12 @@ class UkswController extends Controller
         $title = 'UKSW Salatiga - Solopos.com';
 
         if($slug == 'uksw') {
-            if ($subPage == 'foto') {
-                $title = 'Foto UKSW Salatiga - Solopos.com';
-                $view = 'pages.uksw-foto';
-            }
-            if( $subPage == 'berita' ) {
-                $title = 'Berita UKSW Salatiga - Solopos.com';
-                $view = 'pages.uksw-berita';
-            }
-            if( $subPage == 'prestasi' ) {
-                $title = 'Prestasi UKSW Salatiga - Solopos.com';
-                $view = 'pages.uksw-prestasi';
-            }
-            if( $subPage == 'video' ) {
-                $title = 'Video UKSW Salatiga - Solopos.com';
-                $view = 'pages.uksw-video';
-            }
+           
             if( $subPage == 'kontak' ) {
                 $title = 'Kontak UKSW Salatiga - Solopos.com';
                 $view = 'pages.uksw-kontak';
             }
-            if( $subPage == 'tanya-jawab' ) {
-                $title = 'Tanya Jawab Tentang UKSW Salatiga';
-                $view = 'pages.uksw-faq';
-            }             
+                      
         } else {
             abort(404);
         }
