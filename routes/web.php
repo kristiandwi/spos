@@ -47,7 +47,7 @@ Route::get('/terpopuler', TerpopulerController::class);
 Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
 Route::get('/tag/{slug}', TagController::class);
-Route::get('/{category}/{subcategory}', SubCategoryController::class);
+
 
 Route::get('/uksw', UkswController::class);
 Route::get('/uksw/berita', UkswController::class);
@@ -58,8 +58,8 @@ Route::get('/uksw/tanya-jawab', UkswController::class);
 Route::get('/uksw/kontak', UkswController::class);
 // Route::get('/read/{id}', [HomeController::class, 'show']);
 
-
-
+// Route khusus category dan sub category
+Route::get('/{category}/{subcategory}', SubCategoryController::class);
 // Catch all page controller (place at the very bottom)
 Route::get('{slug}', ReadController::class)->where('slug', '([A-Za-z0-9\-\/]+)');
 
