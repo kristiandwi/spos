@@ -1,4 +1,4 @@
-@extends('layouts.app-uksw')
+@extends('layouts.app')
 @section('content')
     <section class="featured-post-area no-padding">
         <div class="container pl-0 pr-0">

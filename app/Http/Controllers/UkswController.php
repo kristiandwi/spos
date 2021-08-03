@@ -17,7 +17,7 @@ class UkswController extends Controller
     public function __invoke(Request $request)
     {
         $slug = $request->segment(1);
-        $subPage = $request->segment(2);
+        $subSlug = $request->segment(2);
 
         $xmlPath = Config::get('xmldata.topic');
         $xmlPathBreak = Config::get('xmldata.breaking');
@@ -44,12 +44,30 @@ class UkswController extends Controller
         $title = 'UKSW Salatiga - Solopos.com';
 
         if($slug == 'uksw') {
-           
-            if( $subPage == 'kontak' ) {
+            if ($subSlug == 'foto') {
+                $title = 'Foto UKSW Salatiga - Solopos.com';
+                $view = 'pages.uksw-foto';
+            }
+            if( $subSlug == 'berita' ) {
+                $title = 'Berita UKSW Salatiga - Solopos.com';
+                $view = 'pages.uksw-berita';
+            }
+            if( $subSlug == 'prestasi' ) {
+                $title = 'Prestasi UKSW Salatiga - Solopos.com';
+                $view = 'pages.uksw-prestasi';
+            }
+            if( $subSlug == 'video' ) {
+                $title = 'Video UKSW Salatiga - Solopos.com';
+                $view = 'pages.uksw-video';
+            }
+            if( $subSlug == 'kontak' ) {
                 $title = 'Kontak UKSW Salatiga - Solopos.com';
                 $view = 'pages.uksw-kontak';
             }
-                      
+            if( $subSlug == 'tanya-jawab' ) {
+                $title = 'Tanya Jawab Tentang UKSW Salatiga';
+                $view = 'pages.uksw-faq';
+            }             
         } else {
             abort(404);
         }

@@ -47,7 +47,20 @@
 								</li>
 							</ul>
 						</div><!-- post-header-area end -->
+						
 						<div class="post-content-area">
+							<div class="post-media mb-20">
+								<a href="{{ $content['image'] }}" class="gallery-popup cboxElement">
+									<img src="{{ $content['image'] }}" alt="@if(!empty($content['caption'])) {{ htmlentities($content['caption']) }} @endif" class="img-fluid">
+								</a>
+								<span>
+									@if(!empty($content['caption']))
+										<p>SOLOPOS.COM - {{ htmlentities($content['caption']) }}</p>
+									@else
+										<p>SOLOPOS.COM - Panduan Informasi dan Inspirasi</p>
+									@endif    
+								</span>
+							</div>
 
                              {!! htmlspecialchars_decode($content['content']) !!}
 							
