@@ -160,16 +160,29 @@ class ReadController extends Controller
         $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
         $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
         $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$first_tag_id.'&per_page=5')->json();
+        $uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
+        $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
 
         // default view
         $view = 'pages.read';
+
+        $ukswTag = array('UKSW', 'Prestasi UKSW', 'UKSW Salatiga', 'Foto UKSW Salatiga', 'Prestasi UKSW');
+        $tematikuksw = array_intersect($ukswTag, $data['tags']['tag']);
+        $is_uksw = '';
+
+        if($tematikuksw != array()):
+            $is_uksw = 'yes';
+            $breakingcat = $uksw;
+            $view ='pages.read-uksw';
+        endif;
+
 
         if($premium_content == 'premium'):
             $view = 'pages.read-premium';
             $breakingcat = $premium;
         endif;
 
-        return view($view, ['story' => $story, 'data' => $data, 'header' => $header, 'content' => $content, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'video' => $video, 'breakingcat' => $breakingcat, 'related' => $related]);
+        return view($view, ['story' => $story, 'data' => $data, 'header' => $header, 'content' => $content, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'video' => $video, 'is_uksw' => $is_uksw, 'jateng' => $jateng, 'breakingcat' => $breakingcat, 'related' => $related]);
     }
 
 }

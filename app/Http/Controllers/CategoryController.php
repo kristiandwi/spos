@@ -43,6 +43,7 @@ class CategoryController extends Controller
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
+        $uksw = Helper::read_xml($xmlPath, 'uksw');
 
         $header = array(
             'title' => $cat,

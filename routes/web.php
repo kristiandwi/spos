@@ -10,6 +10,7 @@ use App\Http\Controllers\ReadController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TerpopulerController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\UkswController; 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +48,16 @@ Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
 Route::get('/tag/{slug}', TagController::class);
 Route::get('/{category}/{subcategory}', SubCategoryController::class);
+Route::get('/uksw', UkswController::class);
+Route::get('/uksw/berita', UkswController::class);
+Route::get('/uksw/prestasi', UkswController::class);
+Route::get('/uksw/foto', UkswController::class);
+Route::get('/uksw/video', UkswController::class);
+Route::get('/uksw/tanya-jawab', UkswController::class);
+Route::get('/uksw/kontak', UkswController::class);
 // Route::get('/read/{id}', [HomeController::class, 'show']);
+
+
 
 // Catch all page controller (place at the very bottom)
 Route::get('{slug}', ReadController::class)->where('slug', '([A-Za-z0-9\-\/]+)');
