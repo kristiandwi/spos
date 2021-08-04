@@ -1,6 +1,7 @@
-  
+	@if(!empty($is_bob) AND $is_bob == 'yes')
+	@include('includes.tematik.header-bob') 
 
-	@if(!empty($is_uksw) AND $is_uksw == 'yes')
+	@elseif(!empty($is_uksw) AND $is_uksw == 'yes')
 	@include('includes.tematik.header-uksw') 
 		  
 	@else	

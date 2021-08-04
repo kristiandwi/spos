@@ -159,9 +159,10 @@ class ReadController extends Controller
         $popular = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-popular');
         $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
         $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
-        $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$first_tag_id.'&per_page=5')->json();
+        $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags-id='.$first_tag_id.'&per_page=5')->json();
         $uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
         $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
+        $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');
 
         // default view
         $view = 'pages.read';
@@ -182,7 +183,7 @@ class ReadController extends Controller
             $breakingcat = $premium;
         endif;
 
-        return view($view, ['story' => $story, 'data' => $data, 'header' => $header, 'content' => $content, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'video' => $video, 'is_uksw' => $is_uksw, 'jateng' => $jateng, 'breakingcat' => $breakingcat, 'related' => $related]);
+        return view($view, ['story' => $story, 'data' => $data, 'header' => $header, 'content' => $content, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'video' => $video, 'is_uksw' => $is_uksw, 'jateng' => $jateng, 'wisata' => $wisata, 'breakingcat' => $breakingcat, 'related' => $related]);
     }
 
 }

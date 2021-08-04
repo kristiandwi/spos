@@ -10,7 +10,8 @@ use App\Http\Controllers\ReadController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TerpopulerController;
 use App\Http\Controllers\VideoController;
-use App\Http\Controllers\UkswController; 
+use App\Http\Controllers\UkswController;
+use App\Http\Controllers\WisataController;  
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +48,7 @@ Route::get('/terpopuler', TerpopulerController::class);
 Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
 Route::get('/tag/{slug}', TagController::class);
-
+Route::get('/wisata-joglosemar', WisataController::class);
 
 Route::get('/uksw', UkswController::class);
 Route::get('/uksw/berita', UkswController::class);
@@ -56,6 +57,8 @@ Route::get('/uksw/foto', UkswController::class);
 Route::get('/uksw/video', UkswController::class);
 Route::get('/uksw/tanya-jawab', UkswController::class);
 Route::get('/uksw/kontak', UkswController::class);
+
+
 // Route::get('/read/{id}', [HomeController::class, 'show']);
 
 // Route khusus category dan sub category
