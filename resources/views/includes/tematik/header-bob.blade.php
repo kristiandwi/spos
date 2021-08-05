@@ -64,10 +64,10 @@
 									<a href="{{ url('/wisata-joglosemar') }}" style="font-size: 14px; padding-right: 21px;">Beranda</a>
 								</li>
 								<li>
-									<a href="{{ url('/wisata-joglosemar/berita') }}" style="font-size: 14px; padding-right: 21px;">Artikel</a>
+									<a href="{{ url('/wisata-joglosemar/artikel') }}" style="font-size: 14px; padding-right: 21px;">Artikel</a>
 								</li>
 								<li>
-									<a href="{{ url('/wisata-joglosemar/prestasi') }}" style="font-size: 14px; padding-right: 21px;">Info Grafis</a>
+									<a href="{{ url('/wisata-joglosemar/grafis') }}" style="font-size: 14px; padding-right: 21px;">Info Grafis</a>
 								</li>
 								<li>
 									<a href="{{ url('/wisata-joglosemar/foto') }}" style="font-size: 14px; padding-right: 21px;">Galeri Foto</a>
@@ -76,7 +76,7 @@
 									<a href="{{ url('/wisata-joglosemar/video') }}" style="font-size: 14px; padding-right: 21px;">Galeri Video</a>
 								</li>
 								<li>
-									<a href="{{ url('/wisata-joglosemar/kontak') }}" style="font-size: 14px; padding-right: 21px;">Kontak</a>
+									<a href="{{ url('/wisata-joglosemar/kontak') }}" style="font-size: 14px; padding-right: 21px;">Kontak Kami</a>
 								</li>
 				
 							</ul><!--/ Nav ul end -->

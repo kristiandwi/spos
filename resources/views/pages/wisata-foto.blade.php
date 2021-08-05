@@ -3,7 +3,7 @@
 	<section class="main-content category-layout-1 pt-0">
 		<div class="container">
 			<div class="post-header-area" align="center">
-				<h2 class="post-title title-lg">Galeri Foto UKSW Salatiga</h2>
+				<h2 class="post-title title-lg">Galeri Foto Wisata Joglosemar</h2>
 			</div>	
 			
 			<div class="gap-50"></div>
@@ -18,7 +18,7 @@
 							<div class="overlay-post-content">
 								<div class="post-content">
 									<div class="grid-category">
-										<a class="post-cat lifestyle" href="https://www.solopos.com/uksw/foto">Galeri Foto</a>
+										<a class="post-cat lifestyle" href="{{ url("/{$post['category']}") }}">Galeri Foto</a>
 									</div>
 		
 									<h2 class="post-title title-md">

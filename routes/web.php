@@ -47,8 +47,13 @@ Route::get('/premium', PremiumController::class);
 Route::get('/terpopuler', TerpopulerController::class);
 Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
-Route::get('/tag/{slug}', TagController::class);
+
 Route::get('/wisata-joglosemar', WisataController::class);
+Route::get('/wisata-joglosemar/artikel', WisataController::class);
+Route::get('/wisata-joglosemar/grafis', WisataController::class);
+Route::get('/wisata-joglosemar/foto', WisataController::class);
+Route::get('/wisata-joglosemar/video', WisataController::class);
+Route::get('/wisata-joglosemar/kontak', WisataController::class);
 
 Route::get('/uksw', UkswController::class);
 Route::get('/uksw/berita', UkswController::class);
@@ -58,6 +63,7 @@ Route::get('/uksw/video', UkswController::class);
 Route::get('/uksw/tanya-jawab', UkswController::class);
 Route::get('/uksw/kontak', UkswController::class);
 
+Route::get('/tag/{slug}', TagController::class);
 
 // Route::get('/read/{id}', [HomeController::class, 'show']);
 

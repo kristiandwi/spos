@@ -18,7 +18,7 @@ class WisataController extends Controller
     {
 
         $slug = $request->segment(1);
-        $subPage = $request->segment(2);
+        $subSlug = $request->segment(2);
 
         $xmlPath = Config::get('xmldata.topic');
         $xmlPathBreak = Config::get('xmldata.breaking');
@@ -44,23 +44,23 @@ class WisataController extends Controller
         $title = 'Wisata Joglosemar - BOB Borobudur - Solopos.com';
 
         if($slug == 'wisata-joglosemar') {
-            if ($subPage == 'foto') {
+            if ($subSlug == 'foto') {
                 $title = 'Foto Wisata Joglosemar - Solopos.com';
                 $view = 'pages.wisata-foto';
             }
-            if( $subPage == 'artikel' ) {
-                $title = 'Berita Wisata Joglosemar - Solopos.com';
+            if( $subSlug == 'artikel' ) {
+                $title = 'Kumpulan Artikel Wisata Joglosemar - Solopos.com';
                 $view = 'pages.wisata-artikel';
             }
-            if( $subPage == 'grafis' ) {
+            if( $subSlug == 'grafis' ) {
                 $title = 'Grafis Wisata Joglosemar - Solopos.com';
                 $view = 'pages.wisata-grafis';
             }
-            if( $subPage == 'video' ) {
+            if( $subSlug == 'video' ) {
                 $title = 'Video Wisata Joglosemar - Solopos.com';
                 $view = 'pages.wisata-video';
             }
-            if( $subPage == 'kontak' ) {
+            if( $subSlug == 'kontak' ) {
                 $title = 'Kontak Wisata Joglosemar - Solopos.com';
                 $view = 'pages.wisata-kontak';
             }

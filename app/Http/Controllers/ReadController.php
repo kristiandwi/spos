@@ -159,7 +159,7 @@ class ReadController extends Controller
         $popular = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-popular');
         $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
         $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
-        $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags-id='.$first_tag_id.'&per_page=5')->json();
+        $related = json_decode(Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags-id='.$first_tag_id.'&per_page=5'), true);
         $uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
         $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
         $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');

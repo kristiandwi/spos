@@ -3,22 +3,22 @@
 	<section class="main-content category-layout-1 pt-0">
 		<div class="container">
 			<div class="post-header-area" align="center">
-				<h2 class="post-title title-lg">Galeri Foto UKSW Salatiga</h2>
+				<h2 class="post-title title-lg">Info Grafis Wisata Joglosemar</h2>
 			</div>	
 			
 			<div class="gap-50"></div>
 			
 			<div class="row ts-gutter-30">
 				@php $f_loop = 1; @endphp
-				@foreach($foto as $post)				
-				<div class="col-lg-6 col-md-6">
+				@foreach($grafis as $post)				
+				<div class="col-lg-4 col-md-4">
 					<div class="post-block-style post-overaly-style post-md" style="background-image:url({{ $post['images']['thumbnail'] }})">
 						<div class="featured-post">
 							<a href="{{ url("/{$post['slug']}-{$post['id']}") }}" title="{{ $post['title'] }}" class="image-link">&nbsp;</a>
 							<div class="overlay-post-content">
 								<div class="post-content">
 									<div class="grid-category">
-										<a class="post-cat lifestyle" href="https://www.solopos.com/uksw/foto">Galeri Foto</a>
+										<a class="post-cat lifestyle" href="{{ url("/{$post['category']}") }}">Galeri Foto</a>
 									</div>
 		
 									<h2 class="post-title title-md">
@@ -42,8 +42,8 @@
 			<div class="row">
 				<div class="col-12" align="center">
 					<ul class="ts-pagination">
-						<li><a href="#">1</a></li>
-						<li><a href="#" class="active">2</a></li>
+						<li><a href="#" class="active">1</a></li>
+						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
 						<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 					</ul>
