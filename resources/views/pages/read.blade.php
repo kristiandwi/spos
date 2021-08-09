@@ -96,32 +96,37 @@
 				          <a class="btn-quora" href="mailto:?subject=Artikel Menarik dari Solopos.com tentang &amp;body=Artikel ini sangat berguna bagi Anda, silahkan klik link berikut ini "><i class="fa fa-envelope"></i></a>
 				        </div> 
 
+						
 						<div class="post-footer">							
 							<div class="author-box d-flex">
 								<div class="author-img">
-                                    @if(!empty($content['avatar']))
-                                        <img src="{{ htmlentities($content['avatar']) }}" alt="Profile">
-                                    @else
-                                        <img src="{{ asset('img/bg-img/3.jpg') }}" alt="Profile">
-                                    @endif 									
-								</div>  								
-								<div class="author-info">
-									<h3><a href="https://www.solopos.com/author/" target="_blank">{{ $content['editor'] }}</a></h3>									
-									
-									<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
-									
-						            <div class="post-list">
-						               <a href="https://www.solopos.com/author/" target="_blank">Lihat Artikel Saya Lainnya</a>
-						            </div> 									
-									<div class="author-social">
-										<span>Follow Me: </span>
-						                <a href=""><i class="fa fa-twitter"></i></a>
-						                <a href=""><i class="fa fa-facebook"></i></a>
-						                <a href=""><i class="fa fa-instagram"></i></a>
-										<a href="#"><i class="fa fa-google-plus"></i></a>
-									</div>									
+								<!-- User Thumbnail-->
+									@if(!empty($content['avatar']))
+									<img src="{{ htmlentities($content['avatar']) }}" alt="Profile">
+									@else
+									<img src="https://images.solopos.com/2019/10/avatar-solopos-370x370.jpg" alt="Profile">
+									@endif      
 								</div>
-							</div><!-- author box -->
+								<!-- User Content-->             
+								<div class="author-info">
+								<h6>
+									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">{{ $content['editor'] }}</a>
+								</h6>
+								
+								<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
+								
+								<div class="post-list">
+									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">Lihat Artikel Saya Lainnya</a>
+								</div>
+								<div class="author-social">
+									<span>Follow Me: </span>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>              
+							</div>
+						</div>
 
 							<div class="gap-30"></div>
 							<div class="tag-lists">
@@ -152,20 +157,26 @@
 					<!-- realted post start -->
 					<div class="related-post">
 						<h2 class="block-title">
-							<span class="title-angle-shap"> Berita Terkait </span>
+							<span class="title-angle-shap"> {{$relatedtitle}} </span>
 						</h2>
 						<div class="row">
-                        @foreach($related as $rel)
-                                            
-                        <!-- related Post-->
-                        <div class="col-md-4">
+						@php $rel_loop = 1; @endphp
+						@foreach($related as $rel) @if($rel_loop <= 5)  
+						
+						@php 
+						$image = $rel['one_call']['featured_list']['source_url'] ?? 'https://dev.solopos.com/images/solopos.jpg'; 
+						$title = html_entity_decode($rel['title']['rendered']);
+						@endphp
+						<!-- related Post--> 
+						@if ($rel_loop==1)
+						<div class="col-md-4">
                             <div class="post-block-style">
                                 <div class="post-thumb">
                                     <a class="post-title" href="{{ url("/{$rel['slug']}-{$rel['id']}") }}?utm_source=bacajuga_desktop" title="{{ $rel['title']['rendered'] }}">
-                                        <img src="{{ $rel['one_call']['featured_list']['source_url'] }}" alt="{{ $rel['one_call']['featured_list']['caption'] }}" style="object-fit: cover; width: 195px; height: 128px;">
+                                        <img src="{{$image }}" alt=""{{ $rel['title']['rendered'] }}" style="object-fit: cover; width: 195px; height: 128px;">
                                     </a>
                                     <div class="grid-cat">
-                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="https://m.solopos.com/{{ $rel['one_call']['categories_list'][0]['slug'] }}">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
+                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="{{ $rel['one_call']['categories_list'][0]['name'] }}">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
                                     </div>
                                 </div>
                                 
@@ -179,10 +190,36 @@
                                 </div><!-- Post content end -->
                             </div>
                         </div><!-- col end -->
-                        
-                        @endforeach												
-						</div><!-- row end -->
-					</div>
+
+						@else 
+						<div class="col-md-4">
+                            <div class="post-block-style">
+                                <div class="post-thumb">
+                                    <a class="post-title" href="{{ url("/{$rel['slug']}-{$rel['id']}") }}?utm_source=bacajuga_desktop" title="{{ $rel['title']['rendered'] }}">
+                                        <img src="{{$image }}" alt=""{{ $rel['title']['rendered'] }}" style="object-fit: cover; width: 195px; height: 128px;">
+                                    </a>
+                                    <div class="grid-cat">
+                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="https://www.solopos.com/{{ $rel['one_call']['categories_list'][0]['slug'] }}">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="post-content">
+                                    <h2 class="post-title">
+                                        <a class="post-title" href="{{ url("/{$rel['slug']}-{$rel['id']}") }}?utm_source=bacajuga_desktop" title="{{ $rel['title']['rendered'] }}">{{ $rel['title']['rendered'] }}</a>
+                                    </h2>
+                                    <div class="post-meta mb-7 p-0">
+                                        
+                                    </div>
+                                </div><!-- Post content end -->
+                            </div>
+                        </div><!-- col end -->						
+						@endif @endif
+						@php $rel_loop++; @endphp
+						@endforeach  
+						</div>
+					</div>   
+
+
 					<!-- realted post end -->
 
 					<div class="gap-50 d-none d-md-block"></div>
@@ -322,5 +359,18 @@
 			</div><!-- row end -->
 		</div><!-- container end -->
 	</section><!-- category-layout end -->
+	
+	<iframe src="https://www.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
+    @push('custom-scripts')
+    <script>
+      $(window).load(function() {
+        $.ajax({
+            type: "GET",
+            url: 'https://www.solopos.com/set-view?id={{ $content['id'] }}',
+        });
+    });
+    </script>
+    @endpush
+
 
 @endsection

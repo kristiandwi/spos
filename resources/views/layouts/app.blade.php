@@ -1,3 +1,6 @@
+@php header('Access-Control-Allow-Origin: *');
+@endphp
+
 <!DOCTYPE html>
 <html lang="id-ID">
     @include('includes.header')

@@ -32,25 +32,30 @@
 	                        $loop_no = 1;
 	                    @endphp
                         @foreach ($tags as $posts)
+						@php           
+						$image = $posts['featured_image']['thumbnail'] ?? 'https://dev.solopos.com/images/no-thumb.jpg'; 
+						$title = html_entity_decode($posts['title']);
+						@endphp  
+
                             <div class="col-12 mb-10 content-box">
                                 <div class="post-block-style">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="post-thumb post-list_feed">
-                                                <img src="{{ $posts['one_call']['featured_list']['source_url'] }}" alt="{{ $posts['title']['rendered'] }}">
-                                                <a class="post-cat-box {{ $posts['one_call']['categories_list'][0]['slug'] }}" href="https://www.solopos.com/{{ $posts['one_call']['categories_list'][0]['slug'] }}">{{ $posts['one_call']['categories_list'][0]['name'] }}</a>
+                                                <img src="{{ $image }}" alt="{{ $title }}">
+                                                <a class="post-cat-box " href="https://www.solopos.com/"></a>
                                             </div>
                                         </div>
                                         <div class="col-md-7 pl-0">
                                             <div class="post-content">
                                                 <h2 class="post-title title-md">
-                                                <a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}">{{ $posts['title']['rendered'] }}</a>
+                                                <a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}">{{ $title }}</a>
                                                 </h2>
                                                 <div class="post-meta mb-7">
-                                                    <span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $posts['one_call']['post_author']['display_name'] }}</a></span>
+                                                    <span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $posts['one_call']['post_author']['display_name'] ?? '' }}</a></span>
                                                     <span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($posts['date']) }}</span>
                                                 </div>
-                                                <p></p>
+                                                <p>{{$posts['summary']}}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <!-- Section Terkini Start -->
+	<!-- Section Terkini Start -->
 	<section class="block-wrapper">
 		<div class="container pl-0 pr-0">
 			<div class="row ts-gutter-30">
 				<div class="col-lg-8 col-md-12">
 					<h2 class="block-title">
-						<span class="title-angle-shap"> Berita Terkini </span>
+						<span class="title-angle-shap"> ARSIP BERITA #Cek Fakta Corona </span>
 					</h2>
 					<div class="row ts-gutter-20 loadmore-frame">
 			          @php $no = 1; @endphp
-			          @foreach($berita as $post) 
+			          @foreach($cekfakta as $post) 
 						<div class="col-12 mb-10 content-box">
 							<div class="post-block-style">
 								<div class="row">
@@ -52,6 +52,4 @@
 		</div><!-- Container end -->
 	</section>
     <!-- Section Terkini End -->
-
-
 @endsection

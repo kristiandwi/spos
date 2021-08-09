@@ -11,7 +11,9 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TerpopulerController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\UkswController;
-use App\Http\Controllers\WisataController;  
+use App\Http\Controllers\UbahlakuController;
+use App\Http\Controllers\WisataController;
+use App\Http\Controllers\PenulisController;  
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +64,17 @@ Route::get('/uksw/foto', UkswController::class);
 Route::get('/uksw/video', UkswController::class);
 Route::get('/uksw/tanya-jawab', UkswController::class);
 Route::get('/uksw/kontak', UkswController::class);
+
+Route::get('/ubahlaku', UbahlakuController::class);
+Route::get('/ubahlaku/news', UbahlakuController::class);
+Route::get('/ubahlaku/info-grafis', UbahlakuController::class);
+Route::get('/ubahlaku/video', UbahlakuController::class);
+Route::get('/ubahlaku/cek-fakta', UbahlakuController::class);
+Route::get('/ubahlaku/data', UbahlakuController::class);
+Route::get('/ubahlaku/galeri', UbahlakuController::class);
+Route::get('/ubahlaku/faq', UbahlakuController::class);
+
+Route::get('/author/{slug}', PenulisController::class);
 
 Route::get('/tag/{slug}', TagController::class);
 

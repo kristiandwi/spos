@@ -17,34 +17,58 @@ class ReadController extends Controller
      */
     public function __invoke(Request $request)
     {
-
         $id = $request->segment(1);
         $postid = explode('-', $id);
         $xmlPath = Config::get('xmldata.posts');
         $xmlString = $xmlPath.end($postid).'.xml';
 
-        // dd($xmlString);
-
         $isExists = get_headers($xmlString);
 
-        // dd($isExists[0]);
-
         if($isExists[0] !== "HTTP/1.1 200 OK") {
-            // abort(404);
+            //abort(404);
             $res = Http::get('https://cmsx.solopos.com/api/wp/v2/posts/'.end($postid));
             $data = $res->json();
+            //dd($data);
+            $cat_list = $data['one_call']['categories_list'][0]['slug'] ?? '';
+            // $data = Helper::read_xml($xmlPath, end($postid));
 
-            $parentCategory = Http::get('https://cmsx.solopos.com/api/wp/v2/categories/'.$data['one_call']['categories_list'][0]['category_parent'])->json();
-            
-            // dd($parentCategory['slug']);
+            if(!empty($data['tags'])):
+                // get related tag id
+                foreach($data['one_call']['tags_list'] as $tag){
+                    $tag_id[] = $tag['term_taxonomy_id'];
+                }
+                $tags = implode(',', $tag_id);             
 
-            if(empty($parentCategory)) {
-                $category = $data['one_call']['categories_list'][0]['name'];
-            } else {
-                $category = $parentCategory['slug'];
+                foreach($data['one_call']['tags_list'] as $tag){
+                    $tag_name[] = $tag['name'];
+                }                
+            else:
+                $tags = '';
+                $tag_name = array();
+            endif;
+            if (is_null($data['one_call']['featured_list'])):
+                $file_img = 'https://dev.solopos.com/images/solopos.jpg';
+            else:
+                $file_img = $data['one_call']['featured_list']['source_url'];
+            endif;
+
+            //dd($file_img);
+            $img_headers = @get_headers($file_img);
+            if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
+                $image = 'https://dev.solopos.com/images/solopos.jpg';
             }
-
-            //dd($category);
+            else {
+                $image = $file_img;
+            }
+            
+            $avatar_url = $data['one_call']['post_author']['avatar_url'];
+            $avatar_headers = @get_headers($avatar_url);
+            if($avatar_headers[0] == 'HTTP/1.1 404 Not Found') {
+                $avatar = 'https://images.solopos.com/2021/02/avatar-100x100.png';
+            }
+            else {
+                $avatar = $avatar_url;
+            }
 
             $content = [
                 'id' => $data['id'],
@@ -53,19 +77,18 @@ class ReadController extends Controller
                 'summary' => $data['content']['summary'] ?? '',
                 'content' => $data['content']['rendered'],
                 'slug' => $data['slug'],
-                'image' => $data['one_call']['featured_list']['source_url'],
-                'caption' => $data['one_call']['featured_list']['caption'],
-                'category' => $category,
-                'tag' => $data['one_call']['tags_list'],
+                'image' => $image,
+                'caption' => $data['one_call']['featured_list']['caption'] ?? 'Solopos Digital Media - Panduan Informasi dan Inspirasi',                
+                //'image' => 'https://dev.solopos.com/images/solopos.jpg',
+                //'caption' => 'Solopos Digital Media',
+                'category' => $cat_list,
+                'category_child' => $cat_list,
+                'tag' => $tag_name,
                 'author' => $data['one_call']['postmeta']['solopos'][0] ?? 'Redaksi Solopos.com',
                 'editor' => $data['one_call']['post_author']['display_name'],
-                'avatar' => $data['one_call']['post_author']['avatar_url'],
+                'avatar' => $avatar,
+                'editor_url' => '',
             ];
-
-            // dd($content['tag'][0]['term_id']);
-
-            // $data = Helper::read_xml($xmlPath, end($postid));
-
             // properties
             $file = getimagesize($content['image']);
             $width = $file[0];
@@ -75,72 +98,107 @@ class ReadController extends Controller
 
             $video = $data['properties']['post_url_video'] ?? '';
 
-            $first_tag_id = $content['tag'][0]['term_id'];
-        } else {
+            $relatedTags = $tags; 
+            //dd($relatedTags);           
+            //$breaking_id = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?categories='.$data['categories'][0])->json();
+
+            $breaking_id = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-all');
+
+        } else {            
+        
             $xmlObject = simplexml_load_file($xmlString);
 
             $json = json_encode($xmlObject);
             $phpArray = json_decode($json, true);
 
-            // dd($phpArray);
             $data = $phpArray['posts'];
             
-            if ($data['content']['summary']) {
-                $summary = $data['content']['summary'];
-            } else {
-                $summary = '';
+            // $data = Helper::read_xml($xmlPath, end($postid));
+
+            $premium_content = $data['properties']['konten_premium'] ?? '';
+
+            $video = $data['properties']['post_url_video'] ?? '';
+
+            // get related tag id
+            foreach($xmlObject->posts->tags->tag as $tag){
+                $tags[] = $tag['id'];
+            }
+            $relatedTags = implode(',', $tags);
+
+            $file_img = $data['images']['content'];
+            $img_headers = @get_headers($file_img);
+            if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
+                $image = 'https://dev.solopos.com/images/solopos.jpg';
+            }
+            else {
+                $image = $file_img;
+            }
+            
+            $avatar_url = $data['authors']['avatar'];
+            $avatar_headers = @get_headers($avatar_url);
+            if($avatar_headers[0] == 'HTTP/1.1 404 Not Found') {
+                $avatar = 'https://images.solopos.com/2021/02/avatar-100x100.png';
+            }
+            else {
+                $avatar = $avatar_url;
             }
 
             $content = [
                 'id' => $data['properties']['post_id'],
                 'date' => $data['created'],
                 'title' => $data['content']['title'],
-                'summary' => $summary,
+                'summary' => $data['content']['summary'] ?? '',
                 'content' => $data['content']['content'],
                 'slug' => $data['content']['slug'],
-                'image' => $data['images']['content'],
-                'caption' => $data['images']['caption'],
+                'image' => $image,
+                'caption' => $data['images']['caption'] ?? 'Solopos Digital Media - Panduan Informasi dan Inspirasi.',
                 'category' => $data['properties']['category']['parent'],
+                'category_child' => $data['properties']['category']['child'],
                 'tag' => $data['tags']['tag'],
-                'author' => $data['authors']['author'],
+                'author' => $data['authors']['author'] ?? 'Redaksi Solopos',
                 'editor' => $data['authors']['editor'],
-                'avatar' => $data['authors']['avatar'],
+                'avatar' => $avatar,
+                'editor_url' => $data['authors']['editor_url'] ?? '',
             ];
 
-            // dd($content['tag']);
+            $breaking_id = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
+        } //end conditional post from
 
-            // $data = Helper::read_xml($xmlPath, end($postid));
+        $file = getimagesize($content['image']);
+        $width = $file[0];
+        $height = $file[1];
+        if($relatedTags == ''):
+            $relatedtag = 72325;
+            $relatedtitle = 'Info Menarik Untuk Anda';
+        else:
+            $relatedtag = $relatedTags;
+            $relatedtitle = 'Berita Terkait';
+        endif;
+        //dd($relatedname);
+        $regional = array('banyumas', 'blora', 'grobogan', 'magelang', 'kudus', 'pati', 'pemalang', 'salatiga', 'semarang');
+        $if_regional = in_array($content['category_child'], $regional);
+        $regional_name = $content['category_child'];
+        
+        if($content['summary'] != array()):
+            $summary = $content['summary'];
+        else :
+            $summary = '';
+        endif;
 
-            // properties
-            $file = getimagesize($data['images']['content']);
-            $width = $file[0];
-            $height = $file[1];
+        if($content['author'] != array()):
+            $author = $content['author'];
+        else :
+            $author = 'Redaksi Solopos';
+        endif;
 
-            $premium_content = $data['properties']['konten_premium'] ?? '';
-
-            $video = $data['properties']['post_url_video'] ?? '';
-
-            foreach($xmlObject->posts->tags->tag as $tag){
-                $tags[] = $tag['id'];
-            }
-            // dd(implode(',', $tags));
-
-            $first_tag_id = implode(',', $tags);
-        }
-
-        // dd($video);
-
-        // dd($premium_content);
-
-        // dd( count($xmlObject->posts->tags->tag) );
-
-        // header meta
+        //dd($summary);
         $header = array(
             'is_single' => 'yes',
             'title' => $content['title'],
-            'description' => $content['title'].' - '.$content['summary'],
+            'description' => $content['title'].' - '.$summary,
             'link'  => 'https://m.solopos.com/'.$content['slug'].'-'.$content['id'],
-            'author' => $content['author'],
+            'author' => $author,
+            'ringkasan' => $summary,
             'publish_time' => date("Y-m-dTH:i:s+00:00", strtotime($content['date'])),
             'image' => $content['image'],
             'category' => $content['category'],
@@ -148,42 +206,50 @@ class ReadController extends Controller
             'img_height' => $height
         );
 
-        // dd($content['category']);
-
-        // Breaking after reading or load xml data
+        // Breaking after reading
         $story = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-story');
         $news = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-news');
         $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
         $kolom = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-kolom');
-        $premium = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-premium');
-        $popular = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-popular');
-        $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
         $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
-        $related = json_decode(Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags-id='.$first_tag_id.'&per_page=5'), true);
-        $uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
         $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
         $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');
-
-        // default view
+        $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
+        $premium = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-premium');
+        $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');
+		$uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
+        $popular = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-popular');
+        $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
+        $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$relatedtag.'&per_page=5')->json();
+        $breakingcat = $breaking_id;
         $view = 'pages.read';
 
-        $ukswTag = array('UKSW', 'Prestasi UKSW', 'UKSW Salatiga', 'Foto UKSW Salatiga', 'Prestasi UKSW');
-        $tematikuksw = array_intersect($ukswTag, $data['tags']['tag']);
+        //dd($popular);
+
+        $bob = array('Foto Wisata Joglosemar', 'Infografis Wisata Joglosemar', 'Wisata Joglosemar','Badan Otorita Borobudur');
+        $tematik = array_intersect($bob, $content['tag']);
+        $is_bob = '';
+		
+		$ukswTag = array('UKSW', 'Prestasi UKSW', 'UKSW Salatiga', 'Foto UKSW Salatiga', 'Prestasi UKSW');
+        $tematikuksw = array_intersect($ukswTag, $content['tag']);
         $is_uksw = '';
 
-        if($tematikuksw != array()):
+        if($tematik != array()):
+            $is_bob = 'yes';
+            $breakingcat = $wisata;
+        endif;
+		
+		if($tematikuksw != array()):
             $is_uksw = 'yes';
             $breakingcat = $uksw;
-            $view ='pages.read-uksw';
         endif;
-
 
         if($premium_content == 'premium'):
             $view = 'pages.read-premium';
-            $breakingcat = $premium;
-        endif;
+            $breakingcat = $premium;            
+        endif;            
 
-        return view($view, ['story' => $story, 'data' => $data, 'header' => $header, 'content' => $content, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'video' => $video, 'is_uksw' => $is_uksw, 'jateng' => $jateng, 'wisata' => $wisata, 'breakingcat' => $breakingcat, 'related' => $related]);
+        return view($view, ['data' => $data, 'content' => $content, 'header' => $header, 'premium' => $premium, 'popular' => $popular, 'news' => $news, 'kolom' => $kolom, 'lifestyle' => $lifestyle, 'story' => $story, 'editorchoice' => $editorchoice, 'video' => $video, 'wisata' => $wisata, 'uksw' => $uksw, 'breakingcat' => $breakingcat, 'related' => $related, 'relatedtitle' => $relatedtitle, 'is_bob' => $is_bob, 'is_uksw' => $is_uksw, 'if_regional' => $if_regional, 'regional_name' => $regional_name, 'premium_content' => $premium_content]);
     }
 
 }

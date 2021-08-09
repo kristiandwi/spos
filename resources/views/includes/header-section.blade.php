@@ -3,6 +3,9 @@
 
 	@elseif(!empty($is_uksw) AND $is_uksw == 'yes')
 	@include('includes.tematik.header-uksw') 
+
+	@elseif(!empty($is_ubah) AND $is_ubah == 'yes')
+	@include('includes.tematik.header-ubahlaku') 
 		  
 	@else	
 	<!-- Header start -->

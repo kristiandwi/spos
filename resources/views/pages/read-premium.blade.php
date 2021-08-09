@@ -133,29 +133,33 @@
 							
 							<div class="author-box d-flex">
 								<div class="author-img">
-					                @if(!empty($data['authors']['avatar']))
-                                        <img src="{{ htmlentities($data['authors']['avatar']) }}" alt="Profile">
-                                    @else
-                                        <img src="{{ asset('img/bg-img/3.jpg') }}" alt="Profile">
-                                    @endif 	
-								</div> 									
-								<div class="author-info">
-									<h3><a href="https://www.solopos.com/author/" target="_blank">{{ $data['authors']['editor'] }}</a></h3>									
-									
-									<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
-									
-						            <div class="post-list">
-						               <a href="https://www.solopos.com/author/" target="_blank">Lihat Artikel Saya Lainnya</a>
-						            </div>									
-									<div class="author-social">
-										<span>Follow Me: </span>
-						                <a href=""><i class="fa fa-twitter"></i></a>
-						                <a href=""><i class="fa fa-facebook"></i></a>
-						                <a href=""><i class="fa fa-instagram"></i></a>
-										<a href="#"><i class="fa fa-google-plus"></i></a>
-									</div>									
+								<!-- User Thumbnail-->
+									@if(!empty($content['avatar']))
+									<img src="{{ htmlentities($content['avatar']) }}" alt="Profile">
+									@else
+									<img src="https://images.solopos.com/2019/10/avatar-solopos-370x370.jpg" alt="Profile">
+									@endif      
 								</div>
-							</div><!-- author box -->
+								<!-- User Content-->             
+								<div class="author-info">
+								<h6>
+									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">{{ $content['editor'] }}</a>
+								</h6>
+								
+								<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
+								
+								<div class="post-list">
+									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">Lihat Artikel Saya Lainnya</a>
+								</div>
+								<div class="author-social">
+									<span>Follow Me: </span>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>              
+							</div>
+						</div>
 							<div class="gap-30"></div>	
 							<div class="tag-lists">
 								<span>Tags: </span>
@@ -297,5 +301,17 @@
 			</div><!-- row end -->
 		</div><!-- container end -->
 	</section><!-- category-layout end -->
+	
+	<iframe src="https://www.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
+    @push('custom-scripts')
+    <script>
+      $(window).load(function() {
+        $.ajax({
+            type: "GET",
+            url: 'https://www.solopos.com/set-view?id={{ $content['id'] }}',
+        });
+    });
+    </script>
+    @endpush
 
 @endsection

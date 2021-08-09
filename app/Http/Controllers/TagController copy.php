@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
@@ -39,20 +40,14 @@ class TagController extends Controller
         // foreach($tags as $e){
         //     $tagList[] = $e['_embedded']['self'][0];
         // }    
-        //dd($tags);
-
+        //dd($tagList);
         $header = array(
             'title' => 'Arsip Berita '.$tagName.' terbaru, Berita '.$tagName.' hari ini',
             'name' => $tagName,
         );
 
-        // return $tags;
-        $story = Helper::read_xml($xmlPath, 'breaking-story');
-        $popular = Helper::read_xml($xmlPath, 'breaking-popular');
-        $news = Helper::read_xml($xmlPath, 'breaking-news');
-        $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
-        $kolom = Helper::read_xml($xmlPath, 'breaking-kolom');
+        //return $tags;
 
-        return view('pages.tag', ['story' => $story, 'tags' => $tags, 'header' => $header, 'popular' => $popular, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom]);
+        return view('pages.tag', ['breaking' => $tags, 'video' => $video, 'header' => $header]);
     }
 }

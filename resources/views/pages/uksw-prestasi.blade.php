@@ -17,7 +17,7 @@
 									<div class="col-md-5">
 										<div class="post-thumb post-list_feed">
 											<img src="{{ $post['images']['thumbnail'] }}" alt="{{ $post['title'] }}" style="object-fit: cover; height: 167px; width: 250px;">
-											<a class="post-cat-box {{ $post['category'] }}" href="https://www.solopos.com/{{ $post['category'] }}">{{ $post['category'] }}</a>
+											<a class="post-cat-box {{ $post['category'] }}" href="{{ url("/{$post['category']}") }}">{{ $post['category'] }}</a>
 										</div>
 									</div>
 									<div class="col-md-7 pl-0">
