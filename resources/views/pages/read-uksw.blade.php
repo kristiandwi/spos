@@ -97,12 +97,12 @@
                                     @endif 									
 								</div>  								
 								<div class="author-info">
-									<h3><a href="https://www.solopos.com/author/" target="_blank">{{ $content['editor'] }}</a></h3>									
+									<h3><a href="https://www.solopos.com/author/{{ $content['author'] }}" target="_blank">{{ $content['editor'] }}</a></h3>									
 									
 									<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
 									
 						            <div class="post-list">
-						               <a href="https://www.solopos.com/author/" target="_blank">Lihat Artikel Saya Lainnya</a>
+						               <a href="https://www.solopos.com/author/{{ $content['author'] }}" target="_blank">Lihat Artikel Saya Lainnya</a>
 						            </div> 									
 									<div class="author-social">
 										<span>Follow Me: </span>

@@ -6,10 +6,9 @@
 			<div class="row">
 				<div class="col-12">
 					<ol class="breadcrumb">
-						<li>
-							<a href="{{ url('/') }}"><i class="fa fa-home"></i></a> 
-							<i class="fa fa-angle-right"></i> {{ $header['title'] }}
-						</li>
+						<li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a> </li>
+						<li style="text-transform: capitalize;"><i class="fa fa-angle-right"></i> tag </li>
+						<li style="text-transform: capitalize;"><i class="fa fa-angle-right"></i> {{ $header['name'] }}</li>
 						{{-- <li style="text-transform: capitalize;">
 						    <i class="fa fa-angle-right"></i>
 						</li> --}}
@@ -43,7 +42,7 @@
                                         <div class="col-md-5">
                                             <div class="post-thumb post-list_feed">
                                                 <img src="{{ $image }}" alt="{{ $title }}">
-                                                <a class="post-cat-box " href="https://www.solopos.com/"></a>
+                                                <!--<a class="post-cat-box " href="https://www.solopos.com/"></a>-->
                                             </div>
                                         </div>
                                         <div class="col-md-7 pl-0">

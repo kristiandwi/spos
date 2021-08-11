@@ -81,7 +81,7 @@
 						<div class="overlay-post-content">
 							<div class="post-content">
 								<div class="grid-category">
-									<a class="post-cat {{ $ec['category'] }}" href="https://www.solopos.com/{{ $ec['category'] }}">{{ $ec['category'] }}</a>
+									<a class="post-cat {{ $ec['category'] }}" href="{{ url("/{$ec['category']}") }}">{{ $ec['category'] }}</a>
 								</div>
 
 								<h2 class="post-title">

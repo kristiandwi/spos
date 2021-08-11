@@ -12,10 +12,10 @@
 								<li class="social-share">
 									<i class="shareicon fa fa-share"></i>
 									<ul class="social-list">
-										<li><a data-social="facebook" class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url('/uksw/tanya-jawab') }}" title="Tanya Jawab"><i class="fa fa-facebook"></i></a></li>
-										<li><a data-social="twitter" class="twitter" href="http://twitter.com/share?text=Tanya Jawab&url={{ url('/uksw/tanya-jawab') }}" title="Tanya Jawab"><i class="fa fa-twitter"></i></a></li>
-										<li><a data-social="linkedin" class="linkedin" href="{{ url('/uksw/tanya-jawab') }}" title="Tanya Jawab"><i class="fa fa-linkedin"></i></a></li>
-										<li><a data-social="pinterest" class="pinterest" href="{{ url('/uksw/tanya-jawab') }}" title="Tanya Jawab"><i class="fa fa-pinterest-p"></i></a></li>
+										<li><a data-social="facebook" class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url('/ubahlaku/faq') }}" title="Tanya Jawab"><i class="fa fa-facebook"></i></a></li>
+										<li><a data-social="twitter" class="twitter" href="http://twitter.com/share?text=Tanya Jawab&url={{ url('/ubahlaku/faq') }}" title="Tanya Jawab"><i class="fa fa-twitter"></i></a></li>
+										<li><a data-social="linkedin" class="linkedin" href="{{ url('/ubahlaku/faq') }}" title="Tanya Jawab"><i class="fa fa-linkedin"></i></a></li>
+										<li><a data-social="pinterest" class="pinterest" href="{{ url('/ubahlaku/faq') }}" title="Tanya Jawab"><i class="fa fa-pinterest-p"></i></a></li>
 									</ul>
 								</li>
 							</ul>
