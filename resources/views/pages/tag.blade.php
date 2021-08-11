@@ -51,8 +51,7 @@
                                                 <a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}">{{ $title }}</a>
                                                 </h2>
                                                 <div class="post-meta mb-7">
-                                                    <span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $posts['one_call']['post_author']['display_name'] ?? '' }}</a></span>
-                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($posts['date']) }}</span>
+                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($posts['date'])->translatedFormat('j F Y') }}</span>
                                                 </div>
                                                 <p>{{$posts['summary']}}</p>
                                             </div>

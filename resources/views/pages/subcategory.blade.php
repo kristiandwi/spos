@@ -42,14 +42,13 @@
                                                 <a class="post-cat-box {{ $category }}" href="https://www.solopos.com/{{ $category }}/{{ $subcategory }}">{{ $subcategory }}</a>
                                             </div>
                                         </div>
-                                        <div class="col-md-7 pl-0">
+                                        <div class="col-md-7 pl-0"> 
                                             <div class="post-content">
                                                 <h2 class="post-title title-md">
                                                 <a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}">{{ $title }}</a>
                                                 </h2>
                                                 <div class="post-meta mb-7">
-                                                    <span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $posts['one_call']['post_author']['display_name'] ?? '' }}</a></span>
-                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Helper::time_ago($posts['date']) }}</span>
+                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($posts['date'])->translatedFormat('l, j F Y') }}</span>
                                                 </div>
                                                 <p>@if($posts['summary']) {!! $posts['summary'] !!} @endif</p>
                                             </div>

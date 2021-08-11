@@ -32,8 +32,7 @@
 								<div class="author-info">
 									<h3>{{ $header['name'] }}</h3>
 									<div class="author-counter pull-right d-none d-md-block">
-										<span>Tulisan</span>
-										<span>Komentar</span>
+										
 									</div>
 									<p class="author-url">
 										<a href="#">{{ $header['website'] }}</a>
@@ -80,7 +79,6 @@
 											<h2 class="post-title title-md">
 											<a class="post-title" href="{{ url("/{$item['slug']}-{$item['id']}") }}" title="{{ $title }}">{{ $title }}</a></h2>
 											<div class="post-meta mb-7">
-												<span class="post-author"><a href="#"><i class="fa fa-user"></i>{{ $item['one_call']['post_author']['display_name'] ?? '' }}</a></span>
 												<span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($item['date'])->translatedFormat('l, j F Y') }}</span>
 											</div>
 											<p>{{$item['summary']}}</p>

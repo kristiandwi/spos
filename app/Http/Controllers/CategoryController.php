@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $uksw = Helper::read_xml($xmlPath2, 'uksw');
 
         $header = array(
-            'title' => $cat,
+            'title' => 'Berita ' .$cat. ' terbaru, Berita ' .$cat. ' hari ini, Info ' .$cat.' terkini',
         );
 
         return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
