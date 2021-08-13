@@ -36,6 +36,7 @@ class UbahlakuController extends Controller
         $phpArray = json_decode($json, true);
         //dd($phpArray);
         $video = $phpArray['entry']; 
+        
 
         
         //dd($yid);

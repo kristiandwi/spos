@@ -29,7 +29,8 @@
 	                    @endphp
                         @foreach ($breakingcat as $posts)
 						@php           
-						$image = $posts['featured_image']['thumbnail'] ?? 'https://dev.solopos.com/images/no-thumb.jpg'; 
+						$thumb = $posts['featured_image']['thumbnail'] ?? 'https://dev.solopos.com/images/no-thumb.jpg'; 
+            			$medium = $posts['featured_image']['medium'] ?? 'https://dev.solopos.com/images/no-thumb.jpg';
 						$title = html_entity_decode($posts['title']);
 						@endphp   
 
@@ -38,8 +39,8 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="post-thumb post-list_feed">
-                                                <img src="{{ $image }}" alt="{{ $title }}">
-                                                <a class="post-cat-box {{ $category }}" href="https://www.solopos.com/{{ $category }}/{{ $subcategory }}">{{ $subcategory }}</a>
+                                                <img src="{{ $thumb }}" alt="{{ $title }}">
+                                                <a class="post-cat-box {{ $category }}" href="{{ url("/{$category}/{$subcategory}") }}">{{ $subcategory }}</a>
                                             </div>
                                         </div>
                                         <div class="col-md-7 pl-0"> 
@@ -48,7 +49,8 @@
                                                 <a href="{{ url("/{$posts['slug']}-{$posts['id']}") }}">{{ $title }}</a>
                                                 </h2>
                                                 <div class="post-meta mb-7">
-                                                    <span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($posts['date'])->translatedFormat('l, j F Y') }}</span>
+												<span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $posts['author'] }} </a></span>
+												<span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($posts['date'])->translatedFormat('l, j F Y') }}</span>
                                                 </div>
                                                 <p>@if($posts['summary']) {!! $posts['summary'] !!} @endif</p>
                                             </div>

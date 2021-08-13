@@ -176,7 +176,7 @@
                                         <img src="{{$image }}" alt=""{{ $rel['title']['rendered'] }}" style="object-fit: cover; width: 195px; height: 128px;">
                                     </a>
                                     <div class="grid-cat">
-                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="{{ $rel['one_call']['categories_list'][0]['name'] }}">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
+                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="#">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
                                     </div>
                                 </div>
                                 
@@ -199,7 +199,7 @@
                                         <img src="{{$image }}" alt=""{{ $rel['title']['rendered'] }}" style="object-fit: cover; width: 195px; height: 128px;">
                                     </a>
                                     <div class="grid-cat">
-                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="https://www.solopos.com/{{ $rel['one_call']['categories_list'][0]['slug'] }}">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
+                                        <a class="post-cat {{ $rel['one_call']['categories_list'][0]['slug'] }}" href="#">{{ $rel['one_call']['categories_list'][0]['name'] }}</a>
                                     </div>
                                 </div>
                                 
