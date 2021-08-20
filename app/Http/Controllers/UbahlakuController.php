@@ -30,6 +30,7 @@ class UbahlakuController extends Controller
         $popular = Helper::read_xml($xmlPathBreak, 'breaking-popular');
         $jateng = Helper::read_xml($xmlPathBreak, 'breaking-jateng');
         $story = Helper::read_xml($xmlPathBreak, 'breaking-story');
+        $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
 
         $xmlObject = simplexml_load_file('https://www.youtube.com/feeds/videos.xml?playlist_id=PLMNxf31imllG4UzyrB8vSakTZ980IJV8G');
         $json = json_encode($xmlObject);
@@ -83,7 +84,7 @@ class UbahlakuController extends Controller
             'title' => $title,
         );
 
-        return view($view, ['berita' => $berita, 'headline' => $headline, 'prestasi' => $prestasi, 'foto' => $foto, 'video' => $video, 'cekfakta' => $cekfakta, 'is_ubah' => $is_ubah, 'popular' => $popular, 'jateng' => $jateng, 'story' => $story, 'header' => $header]);
+        return view($view, ['berita' => $berita, 'headline' => $headline, 'prestasi' => $prestasi, 'foto' => $foto, 'video' => $video, 'cekfakta' => $cekfakta, 'is_ubah' => $is_ubah, 'popular' => $popular, 'jateng' => $jateng, 'story' => $story, 'widget' => $widget, 'header' => $header]);
         
     }
 }

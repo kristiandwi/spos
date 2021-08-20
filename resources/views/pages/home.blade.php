@@ -128,7 +128,7 @@
 									<div class="col-md-5">
 										<div class="post-thumb post-list_feed">
 											<img src="{{ $post['images']['thumbnail'] }}" alt="{{ $post['title'] }}" style="object-fit: cover; height: 167px; width: 250px;">
-											<a class="post-cat-box {{ $post['category'] }}" href="https://www.solopos.com/{{ $post['category'] }}">{{ $post['category'] }}</a>
+											<a class="post-cat-box {{ $post['category'] }}" href="">{{ $post['category'] }}</a>
 										</div>
 									</div>
 									<div class="col-md-7 pl-0">
@@ -167,7 +167,7 @@
 											<img src="{{ $pc['images']['thumbnail'] }}" alt="{{ $pc['title'] }}" style="object-fit: cover; width: 266px; height: 178px;">
 										</a>
 										<div class="grid-cat">
-											<a class="post-cat premium" href="https://www.solopos.com/premium">Premium</a>
+											<a class="post-cat premium" href="{{ url("/premium") }}">Premium</a>
 										</div>
 									</div>
 									
@@ -226,7 +226,7 @@
 									<div class="col-md-5">
 										<div class="post-thumb post-list_feed">
 											<img src="{{ $post['images']['thumbnail'] }}" alt="{{ $post['title'] }}" style="object-fit: cover; height: 167px; width: 250px;">
-											<a class="post-cat-box {{ $post['category'] }}" href="https://www.solopos.com/{{ $post['category'] }}">{{ $post['category'] }}</a>
+											<a class="post-cat-box {{ $post['category'] }}" href="">{{ $post['category'] }}</a>
 										</div>
 									</div>
 									<div class="col-md-7 pl-0">

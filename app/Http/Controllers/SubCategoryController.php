@@ -65,11 +65,13 @@ class SubCategoryController extends Controller
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
+        $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
+
 
         $header = array(
             'title' => 'Berita '.$subcat.' terbaru, Berita '.$subcat.' terkini hari ini, Info '.$subcat.' terbaru',
         );
 
-        return view('pages.subcategory', ['story' => $story, 'category' => $cat, 'subcategory' => $subcat,  'breaking' => $breaking, 'breakingcat' => $breaking, 'popular' => $popular,  'news' => $news,  'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'video' => $video, 'header' => $header]);
+        return view('pages.subcategory', ['story' => $story, 'category' => $cat, 'subcategory' => $subcat,  'breaking' => $breaking, 'breakingcat' => $breaking, 'popular' => $popular,  'news' => $news,  'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'widget' => $widget, 'kolom' => $kolom, 'video' => $video, 'header' => $header]);
     }
 }

@@ -45,11 +45,12 @@ class CategoryController extends Controller
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
         $uksw = Helper::read_xml($xmlPath2, 'uksw');
+        $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
 
         $header = array(
             'title' => 'Berita ' .$cat. ' terbaru, Berita ' .$cat. ' hari ini, Info ' .$cat.' terkini',
         );
 
-        return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
+        return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'widget' => $widget, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
     }
 }

@@ -3,12 +3,34 @@
 	<div class="sidebar">
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				<!-- /54058497/soloposads/Sidebar-desktop-1 -->
-				<div id='div-gpt-ad-1626428628354-0' style='min-width: 300px; min-height: 250px;'>
-				  <script>
-					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428628354-0'); });
-				  </script>
-				</div>
+				@if( date('Y-m-d H:i:s') >= '2021-08-23 00:00:01' && date('Y-m-d H:i:s') <= '2021-09-02 23:59:59')
+				<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+					<script>
+					window.googletag = window.googletag || {cmd: []};
+					googletag.cmd.push(function() {
+						googletag.defineSlot('/54058497/DSC-300x250', [300, 250], 'div-gpt-ad-1629452878469-0').addService(googletag.pubads());
+						googletag.pubads().enableSingleRequest();
+						googletag.enableServices();
+					});
+					</script>
+					<!-- /54058497/DSC-300x250 -->
+					<div id='div-gpt-ad-1629452878469-0' style='min-width: 300px; min-height: 250px;'>
+						<script>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1629452878469-0'); });
+						</script>
+					</div>
+				@else
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Iklan Responsif -->
+				<ins class="adsbygoogle"
+					style="display:block"
+					data-ad-client="ca-pub-4969077794908710"
+					data-ad-slot="2921244965"
+					data-ad-format="rectangle"></ins>
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+				@endif
 			</div>
 		</div><!-- widget end -->						
 		<div class="sidebar-widget featured-tab post-tab"><!-- style="position: -webkit-sticky; position: sticky; top: 130px;" -->
@@ -57,18 +79,31 @@
 			</div>
 		</div><!-- widget end -->
 		
-		<!-- widget euro 2020 -->
-		
+		@if( date('Y-m-d H:i:s') <= '2021-09-10 23:59:59')
+		@include('includes.widget-energi')
+		@endif
 		<!-- ads streaming radio --><br>
 
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				<!-- /54058497/soloposads/Sidebar-desktop-2 -->
-				<div id='div-gpt-ad-1626428634532-0' style='min-width: 300px; min-height: 250px;'>
-				  <script>
-					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428634532-0'); });
-				  </script>
-				</div>
+				@if( date('Y-m-d H:i:s') >= '2021-08-20 00:00:01' && date('Y-m-d H:i:s') <= '2021-09-06 23:59:59')
+				<a href="https://www.sekatenfesyar.com/" target="_blank"><img src="{{ url('images/banner/sekaten-festival.gif') }}"></a> <br>
+				@endif
+				
+				@if( date('Y-m-d H:i:s') <= '2021-12-31 23:59:59')
+				<br><a href="https://www.solopos.com/uksw" target="_blank"><img src="{{ url('images/banner/UKSW-MR.jpg') }}"></a>  <br>
+				@else 
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Iklan Responsif -->
+					<ins class="adsbygoogle"
+						style="display:block"
+						data-ad-client="ca-pub-4969077794908710"
+						data-ad-slot="2921244965"
+						data-ad-format="rectangle"></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				@endif 
 			</div>
 		</div><!-- widget end -->	
 		<div class="sidebar-widget">
@@ -104,12 +139,16 @@
 
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				<!-- /54058497/soloposads/Sidebar-desktop-3 -->
-				<div id='div-gpt-ad-1626428643116-0' style='min-width: 300px; min-height: 250px;'>
-				  <script>
-					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428643116-0'); });
-				  </script>
-				</div>
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Iklan Responsif -->
+				<ins class="adsbygoogle"
+					style="display:block"
+					data-ad-client="ca-pub-4969077794908710"
+					data-ad-slot="2921244965"
+					data-ad-format="rectangle"></ins>
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
 			</div>
 		</div><!-- widget end -->	
 

@@ -60,8 +60,8 @@
 						@php $b_loop = 1; @endphp
 						@foreach ($breaking as $item)
 						@php           
-						$thumb = $item['featured_image']['thumbnail'] ?? 'https://dev.solopos.com/images/no-thumb.jpg'; 
-            			$medium = $item['featured_image']['medium'] ?? 'https://dev.solopos.com/images/no-medium.jpg';
+						$thumb = $item['featured_image']['thumbnail'] ?? 'https://m.solopos.com/images/no-thumb.jpg'; 
+            			$medium = $item['featured_image']['medium'] ?? 'https://m.solopos.com/images/no-medium.jpg';
 						$title = html_entity_decode($item['title']);
 						@endphp          
 							  
@@ -81,7 +81,7 @@
 											<h2 class="post-title title-md">
 											<a class="post-title" href="{{ url("/{$item['slug']}-{$item['id']}") }}" title="{{ $title }}">{{ $title }}</a></h2>
 											<div class="post-meta mb-7">
-											<span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $item['penulis'] }} </a></span>
+											<span class="post-author"><a href="#"><i class="fa fa-user"></i> {{ $item['penulis'] ?? ''}} </a></span>
 											<span class="post-date"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($item['date'])->translatedFormat('l, j F Y') }}</span>
 											</div>
 											<p>{{$item['summary']}}</p>

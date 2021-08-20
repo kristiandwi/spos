@@ -188,7 +188,7 @@
 				</div><!-- Content Col end -->
 
 				<!-- sidebar home -->
-				@include('includes.sidebar')
+				@include('includes.sidebar-premium')
 
 				<!-- Sidebar Col end -->
 			</div><!-- Row end -->

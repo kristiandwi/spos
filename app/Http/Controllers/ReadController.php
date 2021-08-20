@@ -222,6 +222,7 @@ class ReadController extends Controller
         $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
         $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$relatedtag.'&per_page=5')->json();
         $breakingcat = $breaking_id;
+        $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
         $view = 'pages.read';
 
         //dd($popular);
@@ -249,7 +250,7 @@ class ReadController extends Controller
             $breakingcat = $premium;            
         endif;            
 
-        return view($view, ['data' => $data, 'content' => $content, 'header' => $header, 'premium' => $premium, 'popular' => $popular, 'news' => $news, 'kolom' => $kolom, 'lifestyle' => $lifestyle, 'story' => $story, 'editorchoice' => $editorchoice, 'video' => $video, 'wisata' => $wisata, 'uksw' => $uksw, 'breakingcat' => $breakingcat, 'related' => $related, 'relatedtitle' => $relatedtitle, 'is_bob' => $is_bob, 'is_uksw' => $is_uksw, 'if_regional' => $if_regional, 'regional_name' => $regional_name, 'premium_content' => $premium_content]);
+        return view($view, ['data' => $data, 'content' => $content, 'header' => $header, 'premium' => $premium, 'popular' => $popular, 'news' => $news, 'kolom' => $kolom, 'lifestyle' => $lifestyle, 'story' => $story, 'editorchoice' => $editorchoice, 'video' => $video, 'wisata' => $wisata, 'uksw' => $uksw, 'breakingcat' => $breakingcat, 'related' => $related, 'relatedtitle' => $relatedtitle, 'is_bob' => $is_bob, 'is_uksw' => $is_uksw, 'widget' => $widget, 'if_regional' => $if_regional, 'regional_name' => $regional_name, 'premium_content' => $premium_content]);
     }
 
 }

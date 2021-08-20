@@ -38,13 +38,16 @@ class HomeController extends Controller
 
         $story = Helper::read_xml($xmlPath, 'breaking-story');
 
+        $xmlPath2 = Config::get('xmldata.topic');
+        $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
+
         // dd($breaking);
 
         $header = [
             'title' => 'Solopos.com - Panduan Informasi dan Inspirasi',
         ];
 
-        return view('pages.home', ['story' => $story, 'headline' => $headline, 'breaking' => $breaking, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'kolom' => $kolom, 'espospedia' => $espospedia, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'header' => $header, 'otomotif' => $otomotif, 'espospedia' => $espospedia, 'video' => $video, 'bola' => $bola, 'news' => $news, 'bisnis' => $bisnis, 'lifestyle' => $lifestyle]);
+        return view('pages.home', ['story' => $story, 'headline' => $headline, 'breaking' => $breaking, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'kolom' => $kolom, 'espospedia' => $espospedia, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'header' => $header, 'otomotif' => $otomotif, 'espospedia' => $espospedia, 'video' => $video, 'bola' => $bola, 'news' => $news, 'bisnis' => $bisnis, 'widget' => $widget, 'lifestyle' => $lifestyle]);
     }
 
     /**

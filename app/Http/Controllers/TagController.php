@@ -52,7 +52,9 @@ class TagController extends Controller
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
         $kolom = Helper::read_xml($xmlPath, 'breaking-kolom');
+        $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
 
-        return view('pages.tag', ['story' => $story, 'tags' => $tags, 'header' => $header, 'popular' => $popular, 'news' => $news, 'lifestyle' => $lifestyle, 'kolom' => $kolom]);
+
+        return view('pages.tag', ['story' => $story, 'tags' => $tags, 'header' => $header, 'popular' => $popular, 'news' => $news, 'lifestyle' => $lifestyle, 'widget' => $widget, 'kolom' => $kolom]);
     }
 }

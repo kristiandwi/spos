@@ -59,24 +59,4 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-	<script>
-	  window.googletag = window.googletag || {cmd: []};
-	  googletag.cmd.push(function() {
-		googletag.defineSlot('/54058497/soloposads/WRAPT-TOP', [[996, 100], [996, 200]], 'div-gpt-ad-1626428609236-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/WRAPT-LEFT', [250, 750], 'div-gpt-ad-1626428616428-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/WRAPT-RIGHT', [250, 750], 'div-gpt-ad-1626428622519-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Sidebar-desktop-1', [[300, 250], [300, 300]], 'div-gpt-ad-1626428628354-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Sidebar-desktop-2', [[300, 300], [300, 250]], 'div-gpt-ad-1626428634532-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Sidebar-desktop-3', [[300, 250], [300, 300]], 'div-gpt-ad-1626428643116-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/desktop-leaderboard-1', [[728, 90], [468, 60]], 'div-gpt-ad-1626428932099-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/desktop-leaderboard-2', [[728, 90], [468, 60]], 'div-gpt-ad-1626429067262-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Artikel-desktop-1', [[460, 150], [460, 100], [460, 200]], 'div-gpt-ad-1626429175204-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Artikel-desktop-2', [[460, 200], [460, 150], [460, 100]], 'div-gpt-ad-1626429211330-0').addService(googletag.pubads());
-		googletag.defineSlot('/54058497/soloposads/Artikel-desktop-3', [[460, 100], [460, 150], [460, 200]], 'div-gpt-ad-1626429236142-0').addService(googletag.pubads());
-		googletag.pubads().enableSingleRequest();
-		googletag.enableServices();
-	  });
-	</script>
-
 </head>

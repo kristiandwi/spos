@@ -29,8 +29,8 @@
 	                    @endphp
                         @foreach ($breakingcat as $posts)
 						@php           
-						$thumb = $posts['featured_image']['thumbnail'] ?? 'https://dev.solopos.com/images/no-thumb.jpg'; 
-            			$medium = $posts['featured_image']['medium'] ?? 'https://dev.solopos.com/images/no-thumb.jpg';
+						$thumb = $posts['featured_image']['thumbnail'] ?? 'https://m.solopos.com/images/no-thumb.jpg'; 
+            			$medium = $posts['featured_image']['medium'] ?? 'https://m.solopos.com/images/no-thumb.jpg';
 						$title = html_entity_decode($posts['title']);
 						@endphp   
 

@@ -30,6 +30,7 @@ class UkswController extends Controller
         $popular = Helper::read_xml($xmlPathBreak, 'breaking-popular');
         $jateng = Helper::read_xml($xmlPathBreak, 'breaking-jateng');
         $story = Helper::read_xml($xmlPathBreak, 'breaking-story');
+        $widget = Helper::read_xml($xmlPath, 'Ekspedisi-Energi-2021');
 
         $xmlObject = simplexml_load_file('https://www.youtube.com/feeds/videos.xml?channel_id=UCSNKgXlbQ7x0dMQ0UsPi3gw');
         $json = json_encode($xmlObject);
@@ -76,7 +77,7 @@ class UkswController extends Controller
             'title' => $title,
         );
 
-        return view($view, ['berita' => $berita, 'headline' => $headline, 'prestasi' => $prestasi, 'foto' => $foto, 'video' => $video, 'tanya-jawab' => $tanyajawab, 'is_uksw' => $is_uksw, 'popular' => $popular, 'jateng' => $jateng, 'story' => $story, 'header' => $header]);
+        return view($view, ['berita' => $berita, 'headline' => $headline, 'prestasi' => $prestasi, 'foto' => $foto, 'video' => $video, 'tanya-jawab' => $tanyajawab, 'is_uksw' => $is_uksw, 'popular' => $popular, 'jateng' => $jateng, 'widget' => $widget, 'story' => $story, 'header' => $header]);
         
     }
 }

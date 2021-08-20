@@ -69,7 +69,71 @@
 
                             <!-- ads parallax -->
 
-                             {!! htmlspecialchars_decode($content['content']) !!}
+							 @php
+							$konten = htmlspecialchars_decode($content['content']) ;
+							$contents = explode('</p>', $konten);
+							$total_p = count(array_filter($contents)); 
+
+							// many paragraph
+							$p_iklan_1  = array_slice($contents, 0, 2);
+							//$first_p  = array_slice($contents, 2, 1);
+							$p_iklan_2  = array_slice($contents, 2, 5);
+							//$terkait = array_slice($contents, 2,6);
+							$last_p  = array_slice($contents, 7);
+							@endphp         
+						<!-- ads top -->
+
+						<!-- ads parallax -->
+						
+						{!! implode('</p>', $p_iklan_1) !!}
+
+						<div class="iklan mt-3 mb-3" align="center">
+							<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		                    <ins class="adsbygoogle"
+		                        style="display:block; text-align:center;"
+		                        data-ad-layout="in-article"
+		                        data-ad-format="fluid"
+		                        data-ad-client="ca-pub-4969077794908710"
+		                        data-ad-slot="6460499125"></ins>
+		                    <script>
+		                        (adsbygoogle = window.adsbygoogle || []).push({});
+		                    </script>           
+						</div>
+
+						{!! implode('</p>', $p_iklan_2) !!}
+
+						<div class="iklan mt-3 mb-3" align="center">
+							@if( date('Y-m-d H:i:s') >= '2021-08-19 00:00:01' && date('Y-m-d H:i:s') <= '2021-08-19 23:59:59') 
+							<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+							<script>
+								window.googletag = window.googletag || {cmd: []};
+								googletag.cmd.push(function() {
+								googletag.defineSlot('/54058497/STTWARGA336x280', [336, 280], 'div-gpt-ad-1629373411236-0').addService(googletag.pubads());
+								googletag.pubads().enableSingleRequest();
+								googletag.enableServices();
+								});
+							</script>
+							<!-- /54058497/STTWARGA336x280 -->
+							<div id='div-gpt-ad-1629373411236-0' style='min-width: 336px; min-height: 280px;'>
+								<script>
+								googletag.cmd.push(function() { googletag.display('div-gpt-ad-1629373411236-0'); });
+								</script>
+							</div>
+							@else
+							<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		                    <ins class="adsbygoogle"
+		                        style="display:block; text-align:center;"
+		                        data-ad-layout="in-article"
+		                        data-ad-format="fluid"
+		                        data-ad-client="ca-pub-4969077794908710"
+		                        data-ad-slot="6460499125"></ins>
+		                    <script>
+		                        (adsbygoogle = window.adsbygoogle || []).push({});
+		                    </script> 
+							@endif 
+						</div>
+
+						{!! implode('</p>', $last_p) !!}
 
             			<?php //include (TEMPLATEPATH . '/ads/ads-detail-1.php'); ?>
 							
@@ -164,7 +228,7 @@
 						@foreach($related as $rel) @if($rel_loop <= 5)  
 						
 						@php 
-						$image = $rel['one_call']['featured_list']['source_url'] ?? 'https://dev.solopos.com/images/solopos.jpg'; 
+						$image = $rel['one_call']['featured_list']['source_url'] ?? 'https://m.solopos.com/images/solopos.jpg'; 
 						$title = html_entity_decode($rel['title']['rendered']);
 						@endphp
 						<!-- related Post--> 
@@ -326,7 +390,7 @@
 										<div class="col-md-5">
 											<div class="post-thumb post-list_feed">
 												<img src="{{ $posts['images']['thumbnail'] }}" alt="{{ $posts['title'] }}" style="object-fit: cover; object-position: center; height: 167px; width: 250px;">
-												<a class="post-cat-box {{ $posts['category'] }}" href="https://www.solopos.com/{{ $posts['category'] }}">{{ $posts['category'] }}</a>
+												<a class="post-cat-box {{ $posts['category'] }}" href="{{ url("/{$posts['category']}") }}">{{ $posts['category'] }}</a>
 											</div>
 										</div>
 										<div class="col-md-7 pl-0">

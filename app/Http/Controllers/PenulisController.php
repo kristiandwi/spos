@@ -68,8 +68,11 @@ class PenulisController extends Controller
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
 
+        $xmlPath2 = Config::get('xmldata.topic');
+        $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
+
         //return $tags;
 
-        return view('pages.penulis', ['breaking' => $users, 'author' => $author, 'story' => $story, 'popular' => $popular, 'kolom' => $kolom, 'news' => $news, 'bisnis' => $bisnis, 'lifestyle' => $lifestyle, 'video' => $video, 'header' => $header]);
+        return view('pages.penulis', ['breaking' => $users, 'author' => $author, 'story' => $story, 'popular' => $popular, 'kolom' => $kolom, 'news' => $news, 'bisnis' => $bisnis, 'lifestyle' => $lifestyle, 'video' => $video, 'widget' => $widget, 'header' => $header]);
     }
 }

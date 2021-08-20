@@ -70,7 +70,7 @@
 										<li class="dropdown-submenu">
 											<a href="{{ url('news/pendidikan') }}" class="menu-dropdown" data-toggle="dropdown">Pendidikan</a>
 											<ul class="dropdown-menu">
-												<li><a href="{{ url('/news/pendidikan/uns') }}">UNS</a></li>
+												<li><a href="{{ url('/news/uns') }}">UNS</a></li>
 												<li><a href="{{ url('uksw') }}">UKSW</a></li>
 											</ul>
 										</li>										

@@ -267,7 +267,7 @@
 										<div class="col-md-5">
 											<div class="post-thumb post-list_feed">
 												<img src="{{ $ec['images']['thumbnail'] }}" alt="{{ $ec['title'] }}" style="object-fit: cover; object-position: center; height: 167px; width: 250px;">
-												<a class="post-cat-box {{ $ec['category'] }}" href="https://www.solopos.com/{{ $ec['category'] }}">{{ $ec['category'] }}</a>
+												<a class="post-cat-box {{ $ec['category'] }}" href="{{ url("/{$ec['category']}") }}">{{ $ec['category'] }}</a>
 											</div>
 										</div>
 										<div class="col-md-7 pl-0">
@@ -296,7 +296,7 @@
 				</div><!-- col-lg-8 -->
 
 				<!-- sidebar start -->
-				@include('includes.sidebar')
+				@include('includes.sidebar-premium')
 				<!-- sidebar end -->
 			</div><!-- row end -->
 		</div><!-- container end -->
