@@ -91,7 +91,7 @@
 				@endif
 				
 				@if( date('Y-m-d H:i:s') <= '2021-12-31 23:59:59')
-				<br><a href="https://www.solopos.com/uksw" target="_blank"><img src="{{ url('images/banner/UKSW-MR.jpg') }}"></a>  <br>
+				<br><a href="{{ url("/uksw") }}" target="_blank"><img src="{{ url('images/banner/UKSW-MR.jpg') }}"></a>  <br>
 				@else 
 					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 					<!-- Iklan Responsif -->

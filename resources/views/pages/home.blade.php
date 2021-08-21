@@ -65,7 +65,12 @@
             </div><!-- Row end -->
         </div><!-- Container end -->
     </section><!-- Feature post end -->
-    <div class="gap-20"></div>
+
+	<div class="mt-3" align="center">
+		<a href="https://www.instagram.com/pisalin_official/" title="Pisalin" target="_blank">
+			<img src="{{ url('images/banner/pisalin-728.png') }}">
+		</a>
+	</div>
     <!-- ads top leaderboard -->
 	
     <!-- Section Trending start-->
@@ -269,12 +274,15 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-10">
 					<div class="banner-img">
-						<!-- /54058497/soloposads/desktop-leaderboard-1 -->
-						<div id='div-gpt-ad-1626428932099-0' style='min-width: 468px; min-height: 60px;'>
-						  <script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626428932099-0'); });
-						  </script>
-						</div>
+						<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- 728x90, created 12/15/10 -->
+						<ins class="adsbygoogle"
+							style="display:inline-block;width:728px;height:90px"
+							data-ad-client="ca-pub-4969077794908710"
+							data-ad-slot="9190605831"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 					</div>
 				</div>
 				<!-- col end -->
@@ -299,7 +307,7 @@
 									<img class="img-fluid" src="{{ $kl['images']['thumbnail'] }}" alt="{{ $kl['title'] }}" style="object-fit: cover; height: 148px; width: 222px;">
 								</a>
 								<div class="grid-cat">
-									<a class="post-cat {{ $kl['category'] }}" href="https://www.solopos.com/{{ $kl['category'] }}">{{ $kl['category'] }}</a>
+									<a class="post-cat {{ $kl['category'] }}" href="{{ url("/{$kl['category']}") }}">{{ $kl['category'] }}</a>
 								</div>
 							</div>
 							
@@ -343,11 +351,11 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="post-block-style">
 									<div class="post-thumb">
-										<a href="{{ url("/{$jtg['slug']}-{$jtg['id']}") }}?utm_source=premium_desktop" title="{{ $jtg['title'] }}">
+										<a href="{{ url("/{$jtg['slug']}-{$jtg['id']}") }}?utm_source=home_desktop" title="{{ $jtg['title'] }}">
 											<img src="{{ $jtg['images']['thumbnail'] }}" alt="{{ $jtg['title'] }}" style="object-fit: cover; width: 266px; height: 178px;">
 										</a>
 										<div class="grid-cat">
-											<a class="post-cat premium" href="https://www.solopos.com/premium">Premium</a>
+											<a class="post-cat jateng" href="{{ url("/jateng") }}">Jateng</a>
 										</div>
 									</div>
 									
@@ -440,12 +448,15 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="banner-img text-center">
-						<!-- /54058497/soloposads/desktop-leaderboard-2 -->
-						<div id='div-gpt-ad-1626429067262-0' style='min-width: 468px; min-height: 60px;'>
-						  <script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626429067262-0'); });
-						  </script>
-						</div>
+						<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- 728x90, created 12/15/10 -->
+						<ins class="adsbygoogle"
+							style="display:inline-block;width:728px;height:90px"
+							data-ad-client="ca-pub-4969077794908710"
+							data-ad-slot="9190605831"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 					</div>
 				</div>
 				<!-- col end -->
@@ -473,7 +484,7 @@
 								<div class="overlay-post-content">
 									<div class="post-content">
 										<div class="grid-category">
-											<a class="post-cat espospedia>" href="https://www.solopos.com/espospedia">{{ $ep['title'] }}</a>
+											<a class="post-cat espospedia>" href="{{ url("/espospedia") }}">{{ $ep['title'] }}</a>
 										</div>
 									</div>
 								</div>

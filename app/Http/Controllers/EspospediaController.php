@@ -36,10 +36,13 @@ class EspospediaController extends Controller
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
         $story = Helper::read_xml($xmlPath, 'breaking-story');
 
+        $xmlPath2 = Config::get('xmldata.topic');
+        $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
+
         $header = [
             'title' => 'Espospedia',
         ];
 
-        return view('pages.archive', ['story' => $story, 'data' => $espospedia, 'header' => $header, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'otomotif' => $otomotif]);
+        return view('pages.archive', ['story' => $story, 'data' => $espospedia, 'header' => $header, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'widget' => $widget, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'otomotif' => $otomotif]);
     }
 }
