@@ -3,7 +3,7 @@
 	<div class="sidebar">
 		<div class="sidebar-widget ads-widget">
 			<div class="ads-image">
-				@if( date('Y-m-d H:i:s') >= '2021-08-23 00:00:01' && date('Y-m-d H:i:s') <= '2021-09-02 23:59:59')
+				@if( date('Y-m-d H:i:s') >= '2021-08-23 00:00:01' && date('Y-m-d H:i:s') <= '2021-09-20 23:59:59')
 				<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 					<script>
 					window.googletag = window.googletag || {cmd: []};
