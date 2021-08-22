@@ -14,6 +14,7 @@ use App\Http\Controllers\UkswController;
 use App\Http\Controllers\UbahlakuController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\PenulisController;  
+use App\Http\Controllers\ArsipController; 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,10 @@ Route::get('/premium', PremiumController::class);
 Route::get('/terpopuler', TerpopulerController::class);
 Route::get('/videos', VideoController::class);
 Route::get('/video', VideoController::class);
+Route::get('/jagad-jawa', CategoryController::class);
+
+Route::get('/arsip', ArsipController::class)->name('arsip');
+Route::post('/arsip', ArsipController::class)->name('arsip');
 
 Route::get('/wisata-joglosemar', WisataController::class);
 Route::get('/wisata-joglosemar/artikel', WisataController::class);
@@ -73,6 +78,8 @@ Route::get('/ubahlaku/cek-fakta', UbahlakuController::class);
 Route::get('/ubahlaku/data', UbahlakuController::class);
 Route::get('/ubahlaku/galeri', UbahlakuController::class);
 Route::get('/ubahlaku/faq', UbahlakuController::class);
+
+
 
 /**
  * AMP Route

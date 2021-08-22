@@ -145,7 +145,7 @@
 									</ul>
 								</li><!-- Features menu end -->	
 								<li><a href="{{ url('/premium') }}">Premium</a></li>
-								<li><a href="arsip">Indeks</a></li>
+								<li><a href="{{ url('/arsip') }}">Indeks</a></li>
 								<!--<li class="dropdown">
 									<a href="#" class="dropdown-toggle menu-dropdown" data-toggle="dropdown">Ragam<i class="fa fa-angle-down"></i></a>
 									<ul class="dropdown-menu" role="menu">

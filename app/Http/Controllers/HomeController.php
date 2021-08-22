@@ -31,7 +31,7 @@ class HomeController extends Controller
         $jatim = Helper::read_xml($xmlPath, 'breaking-jatim');
         $jogja = Helper::read_xml($xmlPath, 'breaking-jogja');
         $otomotif = Helper::read_xml($xmlPath, 'breaking-otomotif');
-        $espospedia = Helper::read_xml($xmlPath, 'breaking-espospedia');
+        //$espospedia = Helper::read_xml($xmlPath, 'breaking-espospedia');
         $video = Helper::read_xml($xmlPath, 'breaking-video');
         $bola = Helper::read_xml($xmlPath, 'breaking-bola');
         $news = Helper::read_xml($xmlPath, 'breaking-news');
