@@ -17,6 +17,8 @@ class SubCategoryController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $amp = $request->segment(3); // AMP slug on 2nd segment URL
+        
         $listCat = array('news', 'soloraya', 'lifestyle', 'jatim', 'otomotif', 'entertainment', 'bisnis', 'sport', 'jateng', 'jogja', 'teknologi');
         $listSubCat = array('pendidikan', 'nasional', 'internasional', 'solo', 'sukoharjo', 'boyolali', 'klaten', 'sragen', 'karanganyar', 'wonogiri', 'bola', 'arena', 'leisure', 'viral', 'semarang', 'magelang', 'kudus', 'grobogan', 'pemalang', 'salatiga', 'blora', 'pati', 'banyumas', 'bantul', 'gunungkidul', 'kota-jogja', 'kulonprogo', 'sleman', 'artis', 'hiburan');
         $cat = $request->segment(1);
@@ -72,6 +74,12 @@ class SubCategoryController extends Controller
             'title' => 'Berita '.$subcat.' terbaru, Berita '.$subcat.' terkini hari ini, Info '.$subcat.' terbaru',
         );
 
-        return view('pages.subcategory', ['story' => $story, 'category' => $cat, 'subcategory' => $subcat,  'breaking' => $breaking, 'breakingcat' => $breaking, 'popular' => $popular,  'news' => $news,  'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'widget' => $widget, 'kolom' => $kolom, 'video' => $video, 'header' => $header]);
+        $view = 'pages.subcategory';
+
+        if(!empty($amp)) {
+            $view = 'pages.amp-subcategory';
+        }
+
+        return view($view, ['story' => $story, 'category' => $cat, 'subcategory' => $subcat,  'breaking' => $breaking, 'breakingcat' => $breaking, 'popular' => $popular,  'news' => $news,  'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'widget' => $widget, 'kolom' => $kolom, 'video' => $video, 'header' => $header]);
     }
 }

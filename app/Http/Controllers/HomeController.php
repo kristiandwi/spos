@@ -14,8 +14,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $amp = $request->segment(1); // AMP slug on 2nd segment URL
+        
         $xmlPath = Config::get('xmldata.breaking');
         
         $headline = Helper::read_xml($xmlPath, 'breaking-headline');
@@ -42,12 +44,17 @@ class HomeController extends Controller
         $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
 
         // dd($breaking);
+        $view = 'pages.home';
 
         $header = [
             'title' => 'Solopos.com - Panduan Informasi dan Inspirasi',
         ];
 
-        return view('pages.home', ['story' => $story, 'headline' => $headline, 'breaking' => $breaking, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'kolom' => $kolom, 'espospedia' => $espospedia, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'header' => $header, 'otomotif' => $otomotif, 'espospedia' => $espospedia, 'video' => $video, 'bola' => $bola, 'news' => $news, 'bisnis' => $bisnis, 'widget' => $widget, 'lifestyle' => $lifestyle]);
+        if(!empty($amp)) {
+            $view = 'pages.amp-home';
+        }
+
+        return view($view, ['story' => $story, 'headline' => $headline, 'breaking' => $breaking, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'kolom' => $kolom, 'espospedia' => $espospedia, 'jateng' => $jateng, 'jatim' => $jatim, 'jogja' => $jogja, 'header' => $header, 'otomotif' => $otomotif, 'espospedia' => $espospedia, 'video' => $video, 'bola' => $bola, 'news' => $news, 'bisnis' => $bisnis, 'widget' => $widget, 'lifestyle' => $lifestyle]);
     }
 
     /**

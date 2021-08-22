@@ -74,6 +74,34 @@ Route::get('/ubahlaku/data', UbahlakuController::class);
 Route::get('/ubahlaku/galeri', UbahlakuController::class);
 Route::get('/ubahlaku/faq', UbahlakuController::class);
 
+/**
+ * AMP Route
+ */
+Route::get('/amp',  [HomeController::class, 'index']);
+// Route::get('/{category}/amp', CategoryController::class);
+Route::get('/tag/{slug}/amp', TagController::class);
+Route::get('/{category}/{subcategory}/amp', SubCategoryController::class);
+// AMP Category
+Route::get('/news/amp', CategoryController::class);
+Route::get('/soloraya/amp', CategoryController::class);
+Route::get('/bisnis/amp', CategoryController::class);
+Route::get('/sport/amp', CategoryController::class);
+Route::get('/lifestyle/amp', CategoryController::class);
+Route::get('/jateng/amp', CategoryController::class);
+Route::get('/jatim/amp', CategoryController::class);
+Route::get('/jogja/amp', CategoryController::class);
+Route::get('/otomotif/amp', CategoryController::class);
+Route::get('/entertainment/amp', CategoryController::class);
+Route::get('/videos/amp', CategoryController::class);
+Route::get('/foto/amp', CategoryController::class);
+Route::get('/espospedia/amp', CategoryController::class);
+Route::get('/teknologi/amp', CategoryController::class);
+Route::get('/writing-contest/amp', CategoryController::class);
+Route::get('/jagad-jawa/amp', CategoryController::class);
+Route::get('/loker/amp', CategoryController::class);
+// AMP Single
+Route::get('{slug}/amp', ReadController::class)->where('slug', '([A-Za-z0-9\-\/]+)');
+
 Route::get('/author/{slug}', PenulisController::class);
 
 Route::get('/tag/{slug}', TagController::class);

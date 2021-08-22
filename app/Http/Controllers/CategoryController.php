@@ -16,8 +16,9 @@ class CategoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $list_cat = array('news', 'soloraya', 'lifestyle', 'jatim', 'otomotif', 'entertainment', 'bisnis', 'sport', 'jateng', 'jogja', 'teknologi');
+        $list_cat = array('news', 'soloraya', 'lifestyle', 'jatim', 'otomotif', 'entertainment', 'bisnis', 'sport', 'jateng', 'jogja', 'teknologi', 'video', 'writing-contest', 'loker','cekfakta','jagad-jawa','foto','videos','espospedia');
         $cat = $request->segment(1);
+        $amp = $request->segment(2); // AMP slug on 2nd segment URL
         
         if(!in_array($cat, $list_cat)) {
             abort(404);
@@ -46,11 +47,17 @@ class CategoryController extends Controller
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');
         $uksw = Helper::read_xml($xmlPath2, 'uksw');
         $widget = Helper::read_xml($xmlPath2, 'Ekspedisi-Energi-2021');
+        $view = 'pages.category';
+
 
         $header = array(
             'title' => 'Berita ' .$cat. ' terbaru, Berita ' .$cat. ' hari ini, Info ' .$cat.' terkini',
         );
 
-        return view('pages.category', ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'widget' => $widget, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
+        if(!empty($amp)) {
+            $view = 'pages.amp-category';
+        }
+
+        return view($view, ['story' => $story, 'category' => $cat, 'headline' => $headline, 'breaking' => $breaking, 'breakingcat' => $breakingcat, 'premium' => $premium, 'popular' => $popular, 'editorchoice' => $editorchoice, 'news' => $news, 'bola' => $bola, 'lifestyle' => $lifestyle, 'bisnis' => $bisnis, 'kolom' => $kolom, 'espospedia' => $espospedia, 'video' => $video, 'jateng' => $jateng, 'jatim' => $jatim, 'uksw' => $uksw, 'widget' => $widget, 'jogja' => $jogja, 'otomotif' => $otomotif, 'header' => $header]);
     }
 }

@@ -15,10 +15,11 @@ class ReadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $slug)
     {
-        $id = $request->segment(1);
-        $postid = explode('-', $id);
+        // $id = $request->segment(1);
+        $amp = $request->segment(2); // AMP slug on 2nd segment URL
+        $postid = explode('-', $slug);
         $xmlPath = Config::get('xmldata.posts');
         $xmlString = $xmlPath.end($postid).'.xml';
 
@@ -47,7 +48,7 @@ class ReadController extends Controller
                 $tag_name = array();
             endif;
             if (is_null($data['one_call']['featured_list'])):
-                $file_img = 'https://dev.solopos.com/images/solopos.jpg';
+                $file_img = 'https://m.solopos.com/images/solopos.jpg';
             else:
                 $file_img = $data['one_call']['featured_list']['source_url'];
             endif;
@@ -55,7 +56,7 @@ class ReadController extends Controller
             //dd($file_img);
             $img_headers = @get_headers($file_img);
             if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
-                $image = 'https://dev.solopos.com/images/solopos.jpg';
+                $image = 'https://m.solopos.com/images/solopos.jpg';
             }
             else {
                 $image = $file_img;
@@ -128,7 +129,7 @@ class ReadController extends Controller
             $file_img = $data['images']['content'];
             $img_headers = @get_headers($file_img);
             if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
-                $image = 'https://dev.solopos.com/images/solopos.jpg';
+                $image = 'https://m.solopos.com/images/solopos.jpg';
             }
             else {
                 $image = $file_img;
@@ -198,6 +199,7 @@ class ReadController extends Controller
             'description' => $content['title'].' - '.$summary,
             'link'  => 'https://m.solopos.com/'.$content['slug'].'-'.$content['id'],
             'author' => $author,
+            'editor' => $content['editor'],
             'ringkasan' => $summary,
             'publish_time' => date("Y-m-dTH:i:s+00:00", strtotime($content['date'])),
             'image' => $content['image'],
@@ -248,7 +250,11 @@ class ReadController extends Controller
         if($premium_content == 'premium'):
             $view = 'pages.read-premium';
             $breakingcat = $premium;            
-        endif;            
+        endif; 
+        
+        if(!empty($amp)) {
+            $view = 'pages.amp-read';
+        }
 
         return view($view, ['data' => $data, 'content' => $content, 'header' => $header, 'premium' => $premium, 'popular' => $popular, 'news' => $news, 'kolom' => $kolom, 'lifestyle' => $lifestyle, 'story' => $story, 'editorchoice' => $editorchoice, 'video' => $video, 'wisata' => $wisata, 'uksw' => $uksw, 'breakingcat' => $breakingcat, 'related' => $related, 'relatedtitle' => $relatedtitle, 'is_bob' => $is_bob, 'is_uksw' => $is_uksw, 'widget' => $widget, 'if_regional' => $if_regional, 'regional_name' => $regional_name, 'premium_content' => $premium_content]);
     }

@@ -15,9 +15,10 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($slug)
+    public function __invoke(Request $request, $slug)
     {
-        
+        $amp = $request->segment(3); // AMP slug on 2nd segment URL
+
         $xmlPath = Config::get('xmldata.breaking');
         $res = Http::get('https://cmsx.solopos.com/api/wp/v2/tags?slug='.$slug);
 
@@ -54,7 +55,12 @@ class TagController extends Controller
         $kolom = Helper::read_xml($xmlPath, 'breaking-kolom');
         $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
 
+        $view = 'pages.tag';
 
-        return view('pages.tag', ['story' => $story, 'tags' => $tags, 'header' => $header, 'popular' => $popular, 'news' => $news, 'lifestyle' => $lifestyle, 'widget' => $widget, 'kolom' => $kolom]);
+        if(!empty($amp)) {
+            $view = 'pages.amp-tag';
+        }
+
+        return view($view, ['story' => $story, 'tags' => $tags, 'header' => $header, 'popular' => $popular, 'news' => $news, 'lifestyle' => $lifestyle, 'widget' => $widget, 'kolom' => $kolom]);
     }
 }
