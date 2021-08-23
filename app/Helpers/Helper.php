@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 use Illuminate\Support\Carbon;
+use Jenssegers\Agent\Agent;
 
 class Helper {
     // Parsing XML data
@@ -28,5 +29,15 @@ class Helper {
 
     public static function test_function() {
         return "hello world";
+    }
+
+    public static function mobile_detect() {
+
+        $agent = new Agent();
+
+        // redirect when agent is mobile device 
+        if($agent->isMobile()) {
+            return true;
+        }
     }
 }
