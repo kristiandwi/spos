@@ -16,6 +16,11 @@ class EspospediaController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // Redirect when on mobile device
+        if(Helper::mobile_detect()) {
+            return redirect()->away(Config::get('app.mobile_url').'/espospedia');
+        }
+
         $xmlPath = Config::get('xmldata.breaking');
         
         $espospedia = Helper::read_xml($xmlPath, 'breaking-espospedia');

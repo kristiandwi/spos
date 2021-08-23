@@ -17,6 +17,11 @@ class TagController extends Controller
      */
     public function __invoke(Request $request, $slug)
     {
+        // Redirect when on mobile device
+        if(Helper::mobile_detect()) {
+            return redirect()->away(Config::get('app.mobile_url').'/tag/'.$slug);
+        }
+
         $amp = $request->segment(3); // AMP slug on 2nd segment URL
 
         $xmlPath = Config::get('xmldata.breaking');
