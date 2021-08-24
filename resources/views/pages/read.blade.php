@@ -424,13 +424,13 @@
 		</div><!-- container end -->
 	</section><!-- category-layout end -->
 	
-	<iframe src="https://www.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
+	<iframe src="https://cms.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
     @push('custom-scripts')
     <script>
       $(window).load(function() {
         $.ajax({
             type: "GET",
-            url: 'https://www.solopos.com/set-view?id={{ $content['id'] }}',
+            url: 'https://cms.solopos.com/set-view?id={{ $content['id'] }}',
         });
     });
     </script>

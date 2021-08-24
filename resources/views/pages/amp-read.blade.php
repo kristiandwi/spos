@@ -47,16 +47,7 @@
       
       {!! implode('</p>', $p_iklan_1) !!}
 
-      <div class="iklan half-bottom" align="center">
-        <amp-ad width="100vw" height="320"
-        type="adsense"
-        data-ad-client="ca-pub-4969077794908710"
-        data-ad-slot="2921244965"
-        data-auto-format="rspv"
-        data-full-width="">
-        <div overflow=""></div>
-        </amp-ad>
-      </div>
+      <amp-embed width="600" height="600" layout="responsive" type="mgid" data-publisher="solopos.com" data-widget="990864" data-container="M628318ScriptRootC990864" > </amp-embed>
 
       {!! implode('</p>', $p_iklan_2) !!}
 
@@ -73,16 +64,10 @@
 
       {!! implode('</p>', $last_p) !!}  
 
-      <div class="iklan half-bottom" align="center">
-        <amp-ad width="100vw" height="320"
-        type="adsense"
-        data-ad-client="ca-pub-4969077794908710"
-        data-ad-slot="2921244965"
-        data-auto-format="rspv"
-        data-full-width="">
-        <div overflow=""></div>
-        </amp-ad>
-      </div>
+      <amp-embed type="dable" data-widget-id="Ylj0r3oO"
+      data-service-name="m.solopos.com"
+      data-item-id="2015111202028"
+      height="650"></amp-embed>
 
       <div class="profile-content-wrapper">
         <!-- User Meta Data-->
@@ -98,13 +83,13 @@
           <!-- User Content-->             
           <div class="user-content">
             <h6>
-              <a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">{{ $content['editor'] }}</a>
+              <a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://www.solopos.com/arsip @endif">{{ $content['editor'] }}</a>
             </h6>
             
             <p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
             
             <div class="post-list">
-              <a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">Lihat Artikel Saya Lainnya</a>
+              <a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://www.solopos.com/arsip @endif">Lihat Artikel Saya Lainnya</a>
             </div>
             <div class="author-social">
               <span>Follow Me: </span>
@@ -143,15 +128,29 @@
         </amp-ad>
       </div>
 
+      <amp-ad width="600" height="600" layout="responsive" type="mgid" data-publisher="solopos.com" data-widget="990869" data-container="M628318ScriptRootC990869" > </amp-ad>
+            
       <!-- start hanya untukmu -->
       <h2 class="uppercase full-top no-bottom">Hanya Untuk Anda</h2>
-      <h6 class="uppercase full-bottom color-red-dark">Inspiratif & Informatif</h6> 
+      <h6 class="uppercase full-bottom color-red-dark">Inspiratif & Informatif</h6>       
       <div class="news-top half-bottom">
         @php $hl_loop = 1; @endphp
         @foreach($breakingcat as $hl)
         @if($hl_loop <= 7)       
+        @if($hl_loop == 3)
+        <div class="iklan half-bottom" align="center">
+          <amp-ad width="100vw" height="320"
+          type="adsense"
+          data-ad-client="ca-pub-4969077794908710"
+          data-ad-slot="2921244965"
+          data-auto-format="rspv"
+          data-full-width="">
+          <div overflow=""></div>
+          </amp-ad>
+        </div>
+        @endif        
         <a href="{{ url("/{$hl['slug']}-{$hl['id']}") }}/amp" title="{{ $hl['title'] }}" class="news-header">
-            <amp-img src="{{ $hl['images']['thumbnail'] }}" layout="responsive" width="600" height="300" alt="{{ $hl['title'] }}"></amp-img>
+            <amp-img src="{{ $hl['images']['thumbnail'] }}" layout="responsive" width="600" height="400" alt="{{ $hl['title'] }}"></amp-img>
             <u class="bg-red-dark">HEADLINE</u>
             <i><span>{{ $hl['category'] }}</span></i>
             <strong>{{ $hl['title'] }}</strong>
@@ -171,8 +170,28 @@
         </amp-accordion>
         @endif
         @php $hl_loop++ @endphp
-        @endforeach      
+        @endforeach    
+
+        <div class="iklan half-bottom" align="center">
+          <amp-ad width="100vw" height="320"
+          type="adsense"
+          data-ad-client="ca-pub-4969077794908710"
+          data-ad-slot="2921244965"
+          data-auto-format="rspv"
+          data-full-width="">
+          <div overflow=""></div>
+          </amp-ad>
+        </div>
+
     </div>	         
   </div> <!-- end blog content -->
 </div>
+<amp-img src="https://cms.solopos.com/set-view?id={{ $content['id'] }}" style="display: none;"></amp-img>
+<amp-iframe width="1" height="1"
+    sandbox="allow-scripts allow-same-origin"
+    layout="responsive"
+    frameborder="0"
+    src="https://cms.solopos.com/set-view?id={{ $content['id'] }}"
+    style="position: absolute;width:0;height:0;border:0;bottom:0;">
+  </amp-iframe>
 @endsection
