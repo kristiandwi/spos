@@ -11,7 +11,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li><a href="{{ url('/premium') }}">Espos Premium</a></li>
-						<li><i class="fa fa-angle-right"></i>{{ $data['content']['title'] }}</li>
+						<li><i class="fa fa-angle-right"></i>{{ $content['title'] }}</li>
 					</ol>		
 				</div>
 			</div><!-- row end -->
@@ -25,16 +25,16 @@
 				<div class="col-lg-8">
 					<div class="single-post">
 						<div class="post-header-area">
-							<h1 class="post-title title-lg">{{ $data['content']['title'] }}</h1>
-							<p>@if($data['content']['summary']) {{ $data['content']['summary'] }} @endif</p>
+							<h1 class="post-title title-lg">{{ $content['title'] }}</h1>
+							<p>@if($content['summary']) {{ $content['summary'] }} @endif</p>
 							<ul class="post-meta">
 								<li>
-									<a class="post-cat {{ $data['properties']['category']['parent'] }}" href="{{ $data['properties']['category']['parent'] }}">{{ $data['properties']['category']['parent'] }}</a>
+									<a class="post-cat {{ $content['category'] }}" href="">{{ $content['category'] }}</a>
 								</li>
 								<li class="post-author">
-									<a href="#"><strong> @if($data['authors']['author']) {{ $data['authors']['author'] }} @endif</strong></a>
+									<a href="#"><strong> @if($content['author']) {{ $content['author'] }} @endif</strong></a>
 								</li>
-								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($data['created']) }} WIB</a></li>
+								<li><a href="#"><i class="fa fa-clock-o"></i>{{ Helper::indo_datetime($content['date']) }} WIB</a></li>
 								<li><a href="#"><i class="fa fa-eye"></i><!-- reading time --></a></li>
 								<li class="social-share">
 									<i class="shareicon fa fa-share"></i>
@@ -49,19 +49,19 @@
 						</div><!-- post-header-area end -->
 						<div class="post-content-area">
 							<div class="post-media mb-20">
-								<a href="{{ $data['images']['content']}}" class="gallery-popup cboxElement">
-									<img src="{{ $data['images']['content']}}" alt="@if(!empty($data['images']['caption'])) {{ htmlentities($data['images']['caption']) }} @endif" class="img-fluid">
+								<a href="{{ $content['image']}}" class="gallery-popup cboxElement">
+									<img src="{{ $content['image']}}" alt="@if(!empty($content['caption'])) {{ htmlentities($content['caption']) }} @endif" class="img-fluid">
 								</a>
 								<span>
-                                    @if(!empty($data['images']['caption']))
-                                        <p>SOLOPOS.COM - {{ htmlentities($data['images']['caption']) }}</p>
+                                    @if(!empty($content['caption']))
+                                        <p>SOLOPOS.COM - {{ htmlentities($content['caption']) }}</p>
                                     @else
                                         <p>SOLOPOS.COM - Panduan Informasi dan Inspirasi</p>
                                     @endif    
                                 </span>
 							</div>
 					          <div id="promosi">
-					              {{ $data['content']['summary'] }}
+					              {{ $content['summary'] }}
 					              <div class="alert alert-info alert-dismissable" style="display: inline-block;">              
 					                  <div class="col-md-12 col-md-offset-2">
 					                      <div class="page--title mt-20 text-center">
@@ -143,13 +143,13 @@
 								<!-- User Content-->             
 								<div class="author-info">
 								<h6>
-									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">{{ $content['editor'] }}</a>
+									<a href="@if(!empty($content['editor_url'])){{ url('/')}}/author/{{ $content['editor_url'] }} @else https://index.solopos.com @endif">{{ $content['editor'] }}</a>
 								</h6>
 								
 								<p>Jurnalis di Solopos Group. Menulis konten di Solopos Group yaitu Harian Umum Solopos, Koran Solo, Solopos.com.</p>
 								
 								<div class="post-list">
-									<a href="@if(!empty($data['authors']['editor_url'])){{ url('/')}}/author/{{ $data['authors']['editor_url'] }} @else https://index.solopos.com @endif">Lihat Artikel Saya Lainnya</a>
+									<a href="@if(!empty($content['editor_url'])){{ url('/')}}/author/{{ $content['editor_url'] }} @else https://index.solopos.com @endif">Lihat Artikel Saya Lainnya</a>
 								</div>
 								<div class="author-social">
 									<span>Follow Me: </span>

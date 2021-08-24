@@ -29,7 +29,7 @@
 							<p>@if($content['summary']) {!! $content['summary'] !!} @endif</p>
 							<ul class="post-meta">
 								<li>
-									<a class="post-cat {{ $content['category'] }}" href="{{ $content['category'] }}">{{ $content['category'] }}</a>
+									<a class="post-cat {{ $content['category'] }}" href="">{{ $content['category'] }}</a>
 								</li>
 								<li class="post-author">
 									<a href="#"><strong>{{ $content['author'] }}</strong></a>

@@ -38,8 +38,9 @@ class ReadController extends Controller
             $data = $res->json();
             //dd($data);
             $cat_list = $data['one_call']['categories_list'][0]['slug'] ?? '';
+            $premium_content = $data['one_call']['postmeta']['konten_premium'][0] ?? '';
             // $data = Helper::read_xml($xmlPath, end($postid));
-
+            //dd($premium_content);
             if(!empty($data['tags'])):
                 // get related tag id
                 foreach($data['one_call']['tags_list'] as $tag){
@@ -102,13 +103,13 @@ class ReadController extends Controller
             $width = $file[0];
             $height = $file[1];
 
-            $premium_content = $data['properties']['konten_premium'] ?? '';
+            //$premium_content = $data['properties']['konten_premium'] ?? '';
 
             $video = $data['properties']['post_url_video'] ?? '';
 
             $relatedTags = $tags; 
             //dd($relatedTags);           
-            //$breaking_id = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?categories='.$data['categories'][0])->json();
+            //$breaking_id = Http::get('https://cms.solopos.com/api/wp/v2/posts?categories='.$data['categories'][0])->json();
 
             $breaking_id = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-all');
 
@@ -122,7 +123,7 @@ class ReadController extends Controller
             $data = $phpArray['posts'];
             
             // $data = Helper::read_xml($xmlPath, end($postid));
-
+            
             $premium_content = $data['properties']['konten_premium'] ?? '';
 
             $video = $data['properties']['post_url_video'] ?? '';
@@ -226,13 +227,13 @@ class ReadController extends Controller
             'img_width' => $width,
             'img_height' => $height
         );
-
+        //dd($content['category']);
         // Breaking after reading
         $story = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-story');
         $news = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-news');
         $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
         $kolom = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-kolom');
-        $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
+        //$breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
         $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
         $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');
         $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
@@ -270,7 +271,7 @@ class ReadController extends Controller
             $view = 'pages.read-premium';
             $breakingcat = $premium;            
         endif; 
-        
+        //dd($content);
         if(!empty($amp)) {
             $view = 'pages.amp-read';
         }
