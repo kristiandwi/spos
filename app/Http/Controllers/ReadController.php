@@ -232,7 +232,7 @@ class ReadController extends Controller
         $news = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-news');
         $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
         $kolom = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-kolom');
-        $breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
+        //$breakingcat = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-'.$content['category']);
         $jateng = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-jateng');
         $wisata = Helper::read_xml(Config::get('xmldata.topic'), 'wisata-joglosemar');
         $lifestyle = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-lifestyle');
