@@ -228,7 +228,7 @@
 						@foreach($related as $rel) @if($rel_loop <= 5)  
 						
 						@php 
-						$image = $rel['one_call']['featured_list']['source_url'] ?? 'https://m.solopos.com/images/solopos.jpg'; 
+						$image = $rel['one_call']['featured_list']['source_url'] ?? 'https://www.solopos.com/images/solopos.jpg'; 
 						$title = html_entity_decode($rel['title']['rendered']);
 						@endphp
 						<!-- related Post--> 

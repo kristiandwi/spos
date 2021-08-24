@@ -49,7 +49,7 @@ class ArsipController extends Controller
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$tagId.'&per_page=50');
         //$data = Http::get('https://cmsx.solopos.com/api/breaking/tag/posts?tags='.$tagId);
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/search?search='.$tagName.'&per_page=50&_embed');
-        $res = Http::get('https://cmsx.solopos.com/api/breaking/arsip/posts?year='.$thn.'&month='.$bln.'&day='.$tgl);
+        $res = Http::get('https://cms.solopos.com/api/breaking/arsip/posts?year='.$thn.'&month='.$bln.'&day='.$tgl);
   
         $video = Helper::read_xml($xmlPath, 'breaking-videos');
         $popular = Helper::read_xml($xmlPath, 'breaking-popular');

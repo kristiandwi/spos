@@ -25,7 +25,7 @@ class TagController extends Controller
         $amp = $request->segment(3); // AMP slug on 2nd segment URL
 
         $xmlPath = Config::get('xmldata.breaking');
-        $res = Http::get('https://cmsx.solopos.com/api/wp/v2/tags?slug='.$slug);
+        $res = Http::get('https://cms.solopos.com/api/wp/v2/tags?slug='.$slug);
 
         $tag = $res->json();
         
@@ -36,7 +36,7 @@ class TagController extends Controller
         $tagId = $tag[0]['id'];
         $tagName = $tag[0]['name'];
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$tagId.'&per_page=50');
-        $data = Http::get('https://cmsx.solopos.com/api/breaking/tag/posts?tags='.$tagId);
+        $data = Http::get('https://cms.solopos.com/api/breaking/tag/posts?tags='.$tagId);
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/search?search='.$tagName.'&per_page=50&_embed');
         $video = Helper::read_xml($xmlPath, 'breaking-videos');
 

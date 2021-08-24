@@ -65,7 +65,7 @@
 					              <div class="alert alert-info alert-dismissable" style="display: inline-block;">              
 					                  <div class="col-md-12 col-md-offset-2">
 					                      <div class="page--title mt-20 text-center">
-					                          <img src="https://solopos.com/files/tema/desktop/images/premium.png" height="50%" width="50%">
+					                          <img src="{{ url('images/premium.png') }}" height="50%" width="50%">
 											  <div class="gap-20"></div>
 					                          <div class="content">
 					                              <p>Klik tombol Baca Selengkapnya untuk membaca Espos Premium. Konten Espos Premium merupakan layanan khusus dari Solopos.com yang lebih relevan dan memiliki diferensiasi dibandingkan free content. Selamat menikmati Espos Premium!</p>
@@ -302,13 +302,13 @@
 		</div><!-- container end -->
 	</section><!-- category-layout end -->
 	
-	<iframe src="https://www.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
+	<iframe src="https://cms.solopos.com/set-view?id={{ $content['id'] }}" style="position: absolute;width:0;height:0;border:0;bottom:0;"></iframe>
     @push('custom-scripts')
     <script>
       $(window).load(function() {
         $.ajax({
             type: "GET",
-            url: 'https://www.solopos.com/set-view?id={{ $content['id'] }}',
+            url: 'https://cms.solopos.com/set-view?id={{ $content['id'] }}',
         });
     });
     </script>

@@ -34,7 +34,7 @@ class ReadController extends Controller
 
         if($isExists[0] !== "HTTP/1.1 200 OK") {
             //abort(404);
-            $res = Http::get('https://cmsx.solopos.com/api/wp/v2/posts/'.end($postid));
+            $res = Http::get('https://cms.solopos.com/api/wp/v2/posts/'.end($postid));
             $data = $res->json();
             //dd($data);
             $cat_list = $data['one_call']['categories_list'][0]['slug'] ?? '';
@@ -136,7 +136,7 @@ class ReadController extends Controller
             $file_img = $data['images']['content'];
             $img_headers = @get_headers($file_img);
             if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
-                $image = 'https://m.solopos.com/images/solopos.jpg';
+                $image = 'https://www.solopos.com/images/solopos.jpg';
             }
             else {
                 $image = $file_img;
@@ -241,7 +241,7 @@ class ReadController extends Controller
 		$uksw = Helper::read_xml(Config::get('xmldata.topic'), 'uksw');
         $popular = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-popular');
         $editorchoice = Helper::read_xml(Config::get('xmldata.breaking'), 'breaking-editor-choice');
-        $related = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$relatedtag.'&per_page=5')->json();
+        $related = Http::get('https://cms.solopos.com/api/wp/v2/posts?tags='.$relatedtag.'&per_page=5')->json();
         $breakingcat = $breaking_id;
         $widget = Helper::read_xml(Config::get('xmldata.topic'), 'Ekspedisi-Energi-2021');
         $view = 'pages.read';

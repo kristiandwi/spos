@@ -23,7 +23,7 @@ class VideoController extends Controller
 
         $xmlPath = Config::get('xmldata.breaking');
         $story = Helper::read_xml($xmlPath, 'breaking-story');
-        $video = Helper::read_xml($xmlPath, 'breaking-video');
+        $video = Helper::read_xml($xmlPath, 'breaking-videos');
 
         // dd($video);
 

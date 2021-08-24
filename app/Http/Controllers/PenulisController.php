@@ -27,7 +27,7 @@ class PenulisController extends Controller
         $xmlPath = Config::get('xmldata.breaking');
         $author = $request->segment(2);
         //dd($author);
-        $res = Http::get('https://cmsx.solopos.com/api/wp/v2/users?slug='.$author);
+        $res = Http::get('https://cms.solopos.com/api/wp/v2/users?slug='.$author);
 
         $user = $res->json();
         //dd($user);
@@ -42,7 +42,7 @@ class PenulisController extends Controller
         $userAvatar = $user[0]['avatar_urls'][96];
         //dd($userAvatar);
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?tags='.$tagId.'&per_page=50');
-        $data = Http::get('https://cmsx.solopos.com/api/breaking/author/posts?author='.$userId);
+        $data = Http::get('https://cms.solopos.com/api/breaking/author/posts?author='.$userId);
         //$data = Http::get('https://cmsx.solopos.com/api/wp/v2/search?search='.$tagName.'&per_page=50&_embed');
         $video = Helper::read_xml($xmlPath, 'breaking-videos');
 

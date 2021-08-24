@@ -24,12 +24,12 @@ class SubCategoryController extends Controller
         $cat = $request->segment(1);
         $subcat = $request->segment(2);
 
-        $res = Http::get('https://cmsx.solopos.com/api/wp/v2/categories?slug='.$subcat);
+        $res = Http::get('https://cms.solopos.com/api/wp/v2/categories?slug='.$subcat);
         $data = $res->json();
         $catId = $data[0]['id'];
         //$item = Http::get('https://cmsx.solopos.com/api/wp/v2/posts?categories='.$catId.'&per_page=50');
 
-        $item = Http::get('https://cmsx.solopos.com/api/breaking/posts?category='.$catId);
+        $item = Http::get('https://cms.solopos.com/api/breaking/posts?category='.$catId);
 
         $breaking = $item->json();
         
@@ -67,7 +67,7 @@ class SubCategoryController extends Controller
         //$jogja = Helper::read_xml($xmlPath, 'breaking-jogja');
         //$otomotif = Helper::read_xml($xmlPath, 'breaking-otomotif');
         //$espospedia = Helper::read_xml($xmlPath, 'breaking-espospedia');
-        $video = Helper::read_xml($xmlPath, 'breaking-video');
+        $video = Helper::read_xml($xmlPath, 'breaking-videos');
         //$bola = Helper::read_xml($xmlPath, 'breaking-bola');
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');

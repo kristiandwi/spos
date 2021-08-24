@@ -60,8 +60,8 @@
 						@php $b_loop = 1; @endphp
 						@foreach ($breaking as $item)
 						@php           
-						$thumb = $item['featured_image']['thumbnail'] ?? 'https://m.solopos.com/images/no-thumb.jpg'; 
-            			$medium = $item['featured_image']['medium'] ?? 'https://m.solopos.com/images/no-medium.jpg';
+						$thumb = $item['featured_image']['thumbnail'] ?? 'https://www.solopos.com/images/no-thumb.jpg'; 
+            			$medium = $item['featured_image']['medium'] ?? 'https://www.solopos.com/images/no-medium.jpg';
 						$title = html_entity_decode($item['title']);
 						@endphp          
 							  

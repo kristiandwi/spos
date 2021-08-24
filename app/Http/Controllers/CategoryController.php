@@ -45,8 +45,8 @@ class CategoryController extends Controller
         $jogja = Helper::read_xml($xmlPath, 'breaking-jogja');
         $otomotif = Helper::read_xml($xmlPath, 'breaking-otomotif');
         $espospedia = Helper::read_xml($xmlPath, 'breaking-espospedia');
-        $video = Helper::read_xml($xmlPath, 'breaking-video');
-        $bola = Helper::read_xml($xmlPath, 'breaking-bola');
+        $video = Helper::read_xml($xmlPath, 'breaking-videos');
+        $bola = Helper::read_xml($xmlPath, 'breaking-sport');
         $news = Helper::read_xml($xmlPath, 'breaking-news');
         $bisnis = Helper::read_xml($xmlPath, 'breaking-bisnis');
         $lifestyle = Helper::read_xml($xmlPath, 'breaking-lifestyle');

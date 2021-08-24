@@ -188,7 +188,7 @@
                     	@endforeach	
 						<div class="col-12 mt-3 align-items-center" style="text-align: center;">
 				            <a href="javascript:void(0)" class="btn btn-primary btn-sm load-more" title="Kumpulan Berita">Lihat Berita Lainnya</a>
-				            <a href="https://solopos.com/arsip" class="btn btn-primary btn-sm load-more-arsip" style="display: none;" title="Kumpulan Berita">Arsip Berita</a>
+				            <a href="https://www.solopos.com/arsip" class="btn btn-primary btn-sm load-more-arsip" style="display: none;" title="Kumpulan Berita">Arsip Berita</a>
 						</div><!-- col end -->
 					</div>									
 				</div><!-- Content Col end -->
