@@ -30,7 +30,7 @@
       </div> --}}
       <div class="decoration"></div>
       @php
-      $konten = htmlspecialchars_decode($content['content']) ;
+      $konten = Helper::ampify(htmlspecialchars_decode($content['content']));
       $contents = explode('</p>', $konten);
       $total_p = count(array_filter($contents)); 
 

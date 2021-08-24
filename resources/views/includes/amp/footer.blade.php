@@ -13,21 +13,51 @@
             <div class="clear"></div>
         </div>
     </div> 
+    @if(isset($header['is_single']) == 'yes')
     <amp-analytics type="googleanalytics">
-        <script type="application/json">
-          {
-            "vars": {
-              "account": "UA-7051417-1"
-            },
-            "triggers": {
-              "default pageview": {
-                "on": "visible",
-                "request": "pageview",
-                "vars": {
-                  "title": "{{ $header['title'] }}"
-                }
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-7051417-1"
+          },
+          "extraUrlParams": {
+            "cd1": "{{ $header['editor'] }}",
+            "cd2": "{{ $header['category'] ?? '' }}",
+            "cd3": "{{ $header['keyword'] }}",
+            "cd4": "{{ $header['focusKeyword'] }}",
+            "cd6": "post",
+            "cd7": "{{ $header['author'] }}"
+        },            
+          "triggers": {
+            "trackPageviewWithCustomData": {
+              "on": "visible",
+              "request": "pageview",
+              "vars": {
+                "title": "{{ $header['title'] }}",
+                "page": "{{ $header['link'] }}/amp"
               }
             }
           }
-        </script>
+        }
+      </script>
+    </amp-analytics>
+    @else 
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-7051417-1"
+          },
+          "triggers": {
+            "default pageview": {
+              "on": "visible",
+              "request": "pageview",
+              "vars": {
+                "title": "{{ $header['title'] }}"
+              }
+            }
+          }
+        }
+      </script>
     </amp-analytics>    
+    @endif  

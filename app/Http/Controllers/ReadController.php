@@ -55,7 +55,7 @@ class ReadController extends Controller
                 $tag_name = array();
             endif;
             if (is_null($data['one_call']['featured_list'])):
-                $file_img = 'https://m.solopos.com/images/solopos.jpg';
+                $file_img = 'https://www.solopos.com/images/solopos.jpg';
             else:
                 $file_img = $data['one_call']['featured_list']['source_url'];
             endif;
@@ -63,7 +63,7 @@ class ReadController extends Controller
             //dd($file_img);
             $img_headers = @get_headers($file_img);
             if($img_headers[0] == 'HTTP/1.1 404 Not Found') {
-                $image = 'https://m.solopos.com/images/solopos.jpg';
+                $image = 'https://www.solopos.com/images/solopos.jpg';
             }
             else {
                 $image = $file_img;
@@ -187,10 +187,18 @@ class ReadController extends Controller
         $if_regional = in_array($content['category_child'], $regional);
         $regional_name = $content['category_child'];
         
-        if($content['summary'] != array()):
-            $summary = $content['summary'];
+        if($content['summary'] != array() OR $content['summary'] != ''):
+            $summary = html_entity_decode($content['summary']);
+            $description = html_entity_decode($content['summary']);
         else :
             $summary = '';
+            $description = html_entity_decode($content['title']);
+        endif;
+
+        if($content['summary'] != ''):
+            $description = html_entity_decode($content['summary']);
+        else :
+            $description = html_entity_decode($content['title']);
         endif;
 
         if($content['author'] != array()):
@@ -198,19 +206,23 @@ class ReadController extends Controller
         else :
             $author = 'Redaksi Solopos';
         endif;
+        $title = html_entity_decode($content['title']);
 
         //dd($summary);
         $header = array(
             'is_single' => 'yes',
-            'title' => $content['title'],
-            'description' => $content['title'].' - '.$summary,
-            'link'  => 'https://m.solopos.com/'.$content['slug'].'-'.$content['id'],
+            'title' => stripslashes($title),
+            'description' => stripslashes($description),
+            'link'  => 'https://www.solopos.com/'.$content['slug'].'-'.$content['id'],
             'author' => $author,
             'editor' => $content['editor'],
-            'ringkasan' => $summary,
+            'ringkasan' => stripslashes($summary),
+            'keyword' => implode(', ', $content['tag']) ?? '',
+            'focusKeyword' => $content['tag'][0] ?? '',
             'publish_time' => date("Y-m-dTH:i:s+00:00", strtotime($content['date'])),
             'image' => $content['image'],
             'category' => $content['category'],
+            'category_child' => $content['category_child'] ?? '',
             'img_width' => $width,
             'img_height' => $height
         );

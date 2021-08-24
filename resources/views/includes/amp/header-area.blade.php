@@ -1,6 +1,6 @@
 	<header>
 		<button class="header-icon-2" on='tap:sidebar.toggle'><i class="fa fa-navicon"></i></button>
-		<a href="{{ url('/') }}/amp" class="header-logo"><amp-img src="{{ url('images/logo.png') }}" alt="Solopos.com" layout="responsive" width="175" height="30" alt="logo"></amp-img></a>
+		<a href="{{ url('/') }}/amp" class="header-logo"><amp-img src="{{ url('images/logo.png') }}" alt="Solopos.com" layout="responsive" width="175" height="30"></amp-img></a>
         
         <a href="{{ url('/') }}/page/about-us" class="header-icon-1"><i class="fa fa-info-circle"></i></a>
 	</header>
