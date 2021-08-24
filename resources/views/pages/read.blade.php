@@ -70,7 +70,7 @@
                             <!-- ads parallax -->
 
 							 @php
-							$konten = htmlspecialchars_decode($content['content']) ;
+							$konten = Helper::konten(htmlspecialchars_decode($content['content'])) ;
 							$contents = explode('</p>', $konten);
 							$total_p = count(array_filter($contents)); 
 
