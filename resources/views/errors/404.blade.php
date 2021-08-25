@@ -26,22 +26,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--Favicon-->
-        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="https://www.solopos.com/tema/desktop/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="https://www.solopos.com/tema/desktop/images/favicon.ico" type="image/x-icon">
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/bootstrap.min.css">
         <!-- IconFont -->
-        <link rel="stylesheet" href="{{ asset('css/iconfonts.css') }}">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/iconfonts.css">
         <!-- FontAwesome -->
-        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/font-awesome.min.css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/owl.theme.default.min.css">
+        <!-- magnific -->
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/magnific-popup.css">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/animate.css">
         <!-- Template styles-->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/style.css">
         <!-- Responsive styles-->
-        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/responsive.css">
         <!-- Colorbox -->
-        <link rel="stylesheet" href="{{ asset('css/colorbox.css') }}">
+        <link rel="stylesheet" href="https://www.solopos.com/tema/desktop/css/colorbox.css">
+        <meta name='robots' content='noindex, follow' />
 
         <!-- This site is optimized with the Yoast SEO Premium plugin v16.9 (Yoast SEO v16.9) - https://yoast.com/wordpress/plugins/seo/ -->
         <meta property="og:locale" content="id_ID" />
@@ -304,36 +309,7 @@
                                             <a href="https://www.solopos.com/ini-isi-spanduk-makian-untuk-pejabat-dari-kades-jenar-sragen-1139491?utm_source=story_desktop" target="_blank" title="">Ini Isi Spanduk Makian untuk Pejabat dari Kades Jenar Sragen</a>
                                         </h2>
                                     </div>
-                                    </div>
-                                <div class="item">
-                                    <div class="post-content">
-                                        <h2 class="post-title title-small">
-                                            <a href="https://www.solopos.com/gibran-wali-kota-solo-positif-covid-19-netizen-kirimkan-doa-1139475?utm_source=story_desktop" target="_blank" title="">Gibran Wali Kota Solo Positif Covid-19, Netizen Kirimkan Doa</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="post-content">
-                                        <h2 class="post-title title-small">
-                                            <a href="https://www.solopos.com/tak-disangka-si-cantik-sisca-saraswati-jkt48-ternyata-cah-wonogiri-1139385?utm_source=story_desktop" target="_blank" title="">Tak Disangka, Si Cantik Sisca Saraswati JKT48 Ternyata Cah Wonogiri</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="post-content">
-                                        <h2 class="post-title title-small">
-                                            <a href="https://www.solopos.com/positif-corona-gibran-isolasi-di-tempat-rahasia-1139355?utm_source=story_desktop" target="_blank" title="">Positif Corona, Gibran Isolasi di Tempat Rahasia</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="post-content">
-                                        <h2 class="post-title title-small">
-                                            <a href="https://www.solopos.com/gisel-bikin-video-porno-lebih-dari-sekali-1139317?utm_source=story_desktop" target="_blank" title="">Gisel Bikin Video Porno Lebih dari Sekali</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                                
+                                </div>                                                
                             </div>
                         </div><!-- Col end -->
                         <div class="col-md-3 text-md-right text-center">
@@ -446,19 +422,19 @@
         ================================================== -->
 
         <!-- initialize jQuery Library -->
-        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/jquery.js"></script>
         <!-- Popper Jquery -->
-        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/popper.min.js"></script>
         <!-- Bootstrap jQuery -->
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/bootstrap.min.js"></script>
         <!-- magnific-popup -->
-        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/jquery.magnific-popup.min.js"></script>
         <!-- Owl Carousel -->
-        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/owl.carousel.min.js"></script>
         <!-- Color box -->
-        <script src="{{ asset('js/jquery.colorbox.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/jquery.colorbox.js"></script>
         <!-- Template custom -->
-        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="https://www.solopos.com/tema/desktop/js/custom.js"></script>
 
         <a href="https://www.alexa.com/siteinfo/solopos.com"><script type='text/javascript' src='https://xslt.alexa.com/site_stats/js/s/a?url=solopos.com'></script></a-->
         <!-- Histats.com  START  (aync)-->

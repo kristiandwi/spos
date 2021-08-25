@@ -298,6 +298,13 @@
                         <div class="col-md-9 text-center text-md-left">
                             <p class="trending-title"><i class="tsicon fa fa-bolt"></i> STORY </p>
                             <div id="trending-slide" class="owl-carousel owl-theme trending-slide">
+                                <div class="item">
+                                    <div class="post-content">
+                                        <h2 class="post-title title-small">
+                                            <a href="https://www.solopos.com/ini-isi-spanduk-makian-untuk-pejabat-dari-kades-jenar-sragen-1139491?utm_source=story_desktop" target="_blank" title="">Ini Isi Spanduk Makian untuk Pejabat dari Kades Jenar Sragen</a>
+                                        </h2>
+                                    </div>
+                                </div>                                
                             </div>
                         </div><!-- Col end -->
                         <div class="col-md-3 text-md-right text-center">
