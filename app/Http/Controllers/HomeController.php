@@ -17,9 +17,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url'));
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url'));
+        // }
 
         $amp = $request->segment(1); // AMP slug on 2nd segment URL
         
