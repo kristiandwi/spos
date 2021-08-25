@@ -21,20 +21,30 @@
         <meta name="showus-verification" content="pub-2627" />
         <meta property="dable:item_id" content="2015111202028">
         
-        <title>500 - HTTP ERROR - Solopos.com - Media Informasi dan Inspirasi</title> 
+        <title>500 HTTP ERROR - Solopos.com - Media Informasi dan Inspirasi</title> 
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--Favicon-->
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
         <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+        
         <!-- Bootstrap -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        
         <!-- IconFont -->
         <link rel="stylesheet" href="{{ asset('css/iconfonts.css') }}">
         <!-- FontAwesome -->
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+        <!-- magnific -->
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+
+        
         <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+
         <!-- Template styles-->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!-- Responsive styles-->
@@ -304,7 +314,7 @@
                                             <a href="https://www.solopos.com/ini-isi-spanduk-makian-untuk-pejabat-dari-kades-jenar-sragen-1139491?utm_source=story_desktop" target="_blank" title="">Ini Isi Spanduk Makian untuk Pejabat dari Kades Jenar Sragen</a>
                                         </h2>
                                     </div>
-                                </div>                                
+                                </div>                                                
                             </div>
                         </div><!-- Col end -->
                         <div class="col-md-3 text-md-right text-center">
@@ -326,7 +336,7 @@
                             <h2>500</h2>
                         </div>
                         <div class="error-message">
-                            <h3>Oops... Http Error!</h3>
+                            <h3>Oops... HTTP ERROR!</h3>
                         </div>
                         <div class="error-body">
                             <p>
