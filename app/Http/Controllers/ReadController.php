@@ -30,10 +30,15 @@ class ReadController extends Controller
         $xmlPath = Config::get('xmldata.posts');
         $xmlString = $xmlPath.end($postid).'.xml';
 
-        $isExists = get_headers($xmlString);
+        // $isExists = get_headers($xmlString);
 
-        if($isExists[0] !== "HTTP/1.1 200 OK") {
-            //abort(404);
+        $isExists = Http::get($xmlString);
+
+        // dd($isExists->status());
+
+        // if($isExists[0] !== "HTTP/1.1 200 OK") {
+        if($isExists->status() !== 200) {
+            // abort(404);
             $res = Http::get('https://cms.solopos.com/api/wp/v2/posts/'.end($postid));
             $data = $res->json();
             //dd($data);
