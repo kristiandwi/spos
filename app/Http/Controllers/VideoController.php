@@ -17,9 +17,9 @@ class VideoController extends Controller
     public function __invoke(Request $request)
     {
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/videos');
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/videos');
+        // }
 
         $xmlPath = Config::get('xmldata.breaking');
         $story = Helper::read_xml($xmlPath, 'breaking-story');

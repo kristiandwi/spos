@@ -19,9 +19,9 @@ class PenulisController extends Controller
     public function __invoke(Request $request)
     {
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/author/'.$request->segment(2));
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/author/'.$request->segment(2));
+        // }
 
         
         $xmlPath = Config::get('xmldata.breaking');

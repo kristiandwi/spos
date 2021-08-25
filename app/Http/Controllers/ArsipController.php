@@ -20,9 +20,9 @@ class ArsipController extends Controller
     public function __invoke(Request $request)
     {
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/arsip');
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/arsip');
+        // }
         // $uri = $request->thn;
         //dd($uri);
         $xmlPath = Config::get('xmldata.breaking');

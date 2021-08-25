@@ -21,11 +21,11 @@ class WisataController extends Controller
         $subSlug = $request->segment(2);
 
         // Redirect when on mobile device
-        if(Helper::mobile_detect() && !empty($subSlug)) {
-            return redirect()->away(Config::get('app.mobile_url').'/'.$slug.'/'.$subSlug);
-        } else {
-            return redirect()->away(Config::get('app.mobile_url').'/'.$slug);
-        }
+        // if(Helper::mobile_detect() && !empty($subSlug)) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/'.$slug.'/'.$subSlug);
+        // } else {
+        //     return redirect()->away(Config::get('app.mobile_url').'/'.$slug);
+        // }
         
         $xmlPath = Config::get('xmldata.topic');
         $xmlPathBreak = Config::get('xmldata.breaking');

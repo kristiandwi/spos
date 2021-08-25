@@ -17,9 +17,9 @@ class TerpopulerController extends Controller
     public function __invoke(Request $request)
     {
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/terpopuler');
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/terpopuler');
+        // }
 
         $xmlPath = Config::get('xmldata.breaking');
         

@@ -24,10 +24,10 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/'.$cat);
-        }
+        // // Redirect when on mobile device
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/'.$cat);
+        // }
         
         $xmlPath = Config::get('xmldata.breaking');
         $xmlPath2 = Config::get('xmldata.topic');

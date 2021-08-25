@@ -42,9 +42,9 @@ class SubCategoryController extends Controller
         }
 
         // Redirect when on mobile device
-        if(Helper::mobile_detect()) {
-            return redirect()->away(Config::get('app.mobile_url').'/'.$subcat);
-        }
+        // if(Helper::mobile_detect()) {
+        //     return redirect()->away(Config::get('app.mobile_url').'/'.$subcat);
+        // }
 
         //dd($cat.'>'.$subcat);
         $regional = array('banyumas', 'blora', 'grobogan', 'magelang', 'kudus', 'pati', 'pemalang', 'salatiga', 'semarang');
