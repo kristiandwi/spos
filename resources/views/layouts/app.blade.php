@@ -1,6 +1,8 @@
 @php header('Access-Control-Allow-Origin: *');
 @endphp
-
+@if(Helper::mobile_detect())
+    <script>window.location.href = "{{ str_replace('solopos-desktop.test', 'solopos-mobile.test', url()->current()) }}";</script>
+@endif
 <!DOCTYPE html>
 <html lang="id-ID">
     @include('includes.header')
